@@ -810,21 +810,40 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
             //   echo "---";
             // }
 
+            if(($prelim_grade > 0) && ($midterm_grade > 0) && ($prefinal_grade > 0) && ($final_grade > 0)){
 
-            if ($final_grade > 0) {
-              $average = $final_grade;
+              $average= $prefinal_grade * 0.3 + $final_4th_quarter * 0.7;
+              echo "<h6>" . $average . "</h6>";
 
-              // if($final_status > 0){
-              // echo $final_grade." <sup class='grade_status bg-warning rounded-circle px-1' data-toggle='modal' data-target='#final$student_no'><b>$final_status</b><sup>";
-              // }else{
-              echo $final_grade;
-              // }
-            } else {
-              if ($final_prediction > 0) {
-                $average = $final_prediction;
-                echo "<h6>" . $final_prediction . "</h6>";
-              }
+            }elseif(($prelim_grade > 0) && ($midterm_grade > 0) && ($prefinal_grade > 0) && ($final_grade == 0)){
+
+              $average= $prefinal_grade * 0.3 + $final_prediction * 0.7;
+              echo "<h6>" . $average . "</h6>";
+
+            }elseif(($prelim_grade > 0) && ($midterm_grade > 0) && ($prefinal_grade == 0) && ($final_grade == 0)){
+
+              $average= $prefinal_prediction * 0.3 + $final_prediction * 0.7;
+              echo "<h6>" . $average . "</h6>";
+
             }
+
+            // if ($final_grade > 0) {
+            //   $average = $final_grade;
+
+            //   // if($final_status > 0){
+            //   // echo $final_grade." <sup class='grade_status bg-warning rounded-circle px-1' data-toggle='modal' data-target='#final$student_no'><b>$final_status</b><sup>";
+            //   // }else{
+            //   echo $final_grade;
+            //   // }
+            // } else {
+
+              
+            //   if ($final_prediction > 0) {
+            //     $final_grade_prediction = $prefinal_grade * 0.3 + $final_prediction * 0.7;
+            //     $average = $final_grade_prediction;
+            //     echo "<h6>" . $average . "</h6>";
+            //   }
+            // }
             ?>
           </td>
           <td>
