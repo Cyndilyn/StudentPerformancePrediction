@@ -810,21 +810,18 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
             //   echo "---";
             // }
 
-            if(($prelim_grade > 0) && ($midterm_grade > 0) && ($prefinal_grade > 0) && ($final_grade > 0)){
+            if ((floatval($prelim_grade) > 0) && (floatval($midterm_grade) > 0) && (floatval($prefinal_grade) > 0) && (floatval($final_grade) > 0)) {
 
-              $average= $prefinal_grade * 0.3 + $final_4th_quarter * 0.7;
+              $average = $prefinal_grade * 0.3 + $final_4th_quarter * 0.7;
               echo "<h6>" . $average . "</h6>";
+            } elseif ((floatval($prelim_grade) > 0) && (floatval($midterm_grade) > 0) && (floatval($prefinal_grade) > 0) && (floatval($final_grade) == 0)) {
 
-            }elseif(($prelim_grade > 0) && ($midterm_grade > 0) && ($prefinal_grade > 0) && ($final_grade == 0)){
-
-              $average= $prefinal_grade * 0.3 + $final_prediction * 0.7;
+              $average = $prefinal_grade * 0.3 + $final_prediction * 0.7;
               echo "<h6>" . $average . "</h6>";
+            } elseif ((floatval($prelim_grade) > 0) && (floatval($midterm_grade) > 0) && (floatval($prefinal_grade) == 0) && (floatval($final_grade) == 0)) {
 
-            }elseif(($prelim_grade > 0) && ($midterm_grade > 0) && ($prefinal_grade == 0) && ($final_grade == 0)){
-
-              $average= $prefinal_prediction * 0.3 + $final_prediction * 0.7;
+              $average = (floatval($prefinal_prediction) * 0.3) + (floatval($final_prediction) * 0.7);
               echo "<h6>" . $average . "</h6>";
-
             }
 
             // if ($final_grade > 0) {
@@ -837,7 +834,7 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
             //   // }
             // } else {
 
-              
+
             //   if ($final_prediction > 0) {
             //     $final_grade_prediction = $prefinal_grade * 0.3 + $final_prediction * 0.7;
             //     $average = $final_grade_prediction;
