@@ -175,6 +175,7 @@ $student_name = $firstname . " " . $middlename[0] . ". " . $lastname;
                     $prefinal_written_test = $row_prefinal["prefinal_written_test"]; //ok
 
                     $prefinal_prediction = $row_prefinal["prefinal_prediction"];
+                    $equivalent = $row_prefinal["equivalent"];
 
                     if (
                         $prefinal_output_1 == 0 && $prefinal_output_2 == 0 &&
@@ -215,6 +216,7 @@ $student_name = $firstname . " " . $middlename[0] . ". " . $lastname;
                     $final_written_test = $row_final["final_written_test"];
 
                     $final_prediction = $row_final["final_prediction"];
+                    $equivalent = $row_final["equivalent"];
 
                     if (
                         $final_output_1 == 0 && $final_output_2 == 0 &&
@@ -266,48 +268,48 @@ $student_name = $firstname . " " . $middlename[0] . ". " . $lastname;
                         <td id="select_prediction" class="bg-white">
                             <select class="form-control pt-1 pb-2 bg-dark text-white" id="average_predict" onchange="average()">
                                 <option value="select_grade_prediction">Select Value</option>
-                                <option value="1" id="1" <?php if (isset($_GET['ave'])) {
-                                                                if ($_GET['ave'] == "1") {
+                                <option value="1" id="1" <?php if (isset($equivalent)) {
+                                                                if ($equivalent == "1") {
                                                                     echo 'selected';
                                                                 }
                                                             } ?>>1</option>
-                                <option value="1.25" id="1.25" <?php if (isset($_GET['ave'])) {
-                                                                    if ($_GET['ave'] == "1.25") {
+                                <option value="1.25" id="1.25" <?php if (isset($equivalent)) {
+                                                                    if ($equivalent == "1.25") {
                                                                         echo 'selected';
                                                                     }
                                                                 } ?>>1.25</option>
-                                <option value="1.5" id="1.5" <?php if (isset($_GET['ave'])) {
-                                                                    if ($_GET['ave'] == "1.5") {
+                                <option value="1.5" id="1.5" <?php if (isset($equivalent)) {
+                                                                    if ($equivalent == "1.5") {
                                                                         echo 'selected';
                                                                     }
                                                                 } ?>>1.5</option>
-                                <option value="1.75" id="1.75" <?php if (isset($_GET['ave'])) {
-                                                                    if ($_GET['ave'] == "1.75") {
+                                <option value="1.75" id="1.75" <?php if (isset($equivalent)) {
+                                                                    if ($equivalent == "1.75") {
                                                                         echo 'selected';
                                                                     }
                                                                 } ?>>1.75</option>
-                                <option value="2" id="2" <?php if (isset($_GET['ave'])) {
-                                                                if ($_GET['ave'] == "2") {
+                                <option value="2" id="2" <?php if (isset($equivalent)) {
+                                                                if ($equivalent == "2") {
                                                                     echo 'selected';
                                                                 }
                                                             } ?>>2</option>
-                                <option value="2.25" id="2.25" <?php if (isset($_GET['ave'])) {
-                                                                    if ($_GET['ave'] == "2.25") {
+                                <option value="2.25" id="2.25" <?php if (isset($equivalent)) {
+                                                                    if ($equivalent == "2.25") {
                                                                         echo 'selected';
                                                                     }
                                                                 } ?>>2.25</option>
-                                <option value="2.5" id="2.5" <?php if (isset($_GET['ave'])) {
-                                                                    if ($_GET['ave'] == "2.5") {
+                                <option value="2.5" id="2.5" <?php if (isset($equivalent)) {
+                                                                    if ($equivalent == "2.5") {
                                                                         echo 'selected';
                                                                     }
                                                                 } ?>>2.5</option>
-                                <option value="2.75" id="2.75" <?php if (isset($_GET['ave'])) {
-                                                                    if ($_GET['ave'] == "2.75") {
+                                <option value="2.75" id="2.75" <?php if (isset($equivalent)) {
+                                                                    if ($equivalent == "2.75") {
                                                                         echo 'selected';
                                                                     }
                                                                 } ?>>2.75</option>
-                                <option value="3" id="3" <?php if (isset($_GET['ave'])) {
-                                                                if ($_GET['ave'] == "3") {
+                                <option value="3" id="3" <?php if (isset($equivalent)) {
+                                                                if ($equivalent == "3") {
                                                                     echo 'selected';
                                                                 }
                                                             } ?>>3</option>
@@ -1142,13 +1144,786 @@ $student_name = $firstname . " " . $middlename[0] . ". " . $lastname;
 
                 var grade_array = [];
 
-                for (var i = 75; i <= 95; i++) {
-                    for (var j = 75; j <= 100; j++) {
-                        var name = "_" + i + "_" + j;
-                        var value = i + j;
-                        // console.log("var " + name + " = " + value + ";");
-                    }
-                }
+                // ___________75
+
+                var _75_75 = 75 + 75;
+                var _75_76 = 75 + 76;
+                var _75_77 = 75 + 77;
+                var _75_78 = 75 + 78;
+                var _75_79 = 75 + 79;
+                var _75_80 = 75 + 80;
+                var _75_81 = 75 + 81;
+                var _75_82 = 75 + 82;
+                var _75_83 = 75 + 83;
+                var _75_84 = 75 + 84;
+                var _75_85 = 75 + 85;
+                var _75_86 = 75 + 86;
+                var _75_87 = 75 + 87;
+                var _75_88 = 75 + 88;
+                var _75_89 = 75 + 89;
+                var _75_90 = 75 + 90;
+                var _75_91 = 75 + 91;
+                var _75_92 = 75 + 92;
+                var _75_93 = 75 + 93;
+                var _75_94 = 75 + 94;
+                var _75_95 = 75 + 95;
+                var _75_96 = 75 + 96;
+                var _75_97 = 75 + 97;
+                var _75_98 = 75 + 98;
+                var _75_99 = 75 + 99;
+                var _75_100 = 75 + 100;
+
+
+
+                // ___________76
+
+                var _76_75 = 76 + 75;
+                var _76_76 = 76 + 76;
+                var _76_77 = 76 + 77;
+                var _76_78 = 76 + 78;
+                var _76_79 = 76 + 79;
+                var _76_80 = 76 + 80;
+                var _76_81 = 76 + 81;
+                var _76_82 = 76 + 82;
+                var _76_83 = 76 + 83;
+                var _76_84 = 76 + 84;
+                var _76_85 = 76 + 85;
+                var _76_86 = 76 + 86;
+                var _76_87 = 76 + 87;
+                var _76_88 = 76 + 88;
+                var _76_89 = 76 + 89;
+                var _76_90 = 76 + 90;
+                var _76_91 = 76 + 91;
+                var _76_92 = 76 + 92;
+                var _76_93 = 76 + 93;
+                var _76_94 = 76 + 94;
+                var _76_95 = 76 + 95;
+                var _76_96 = 76 + 96;
+                var _76_97 = 76 + 97;
+                var _76_98 = 76 + 98;
+                var _76_99 = 76 + 99;
+                var _76_100 = 76 + 100;
+
+
+
+                // ___________77
+
+                var _77_75 = 77 + 75;
+                var _77_76 = 77 + 76;
+                var _77_77 = 77 + 77;
+                var _77_78 = 77 + 78;
+                var _77_79 = 77 + 79;
+                var _77_80 = 77 + 80;
+                var _77_81 = 77 + 81;
+                var _77_82 = 77 + 82;
+                var _77_83 = 77 + 83;
+                var _77_84 = 77 + 84;
+                var _77_85 = 77 + 85;
+                var _77_86 = 77 + 86;
+                var _77_87 = 77 + 87;
+                var _77_88 = 77 + 88;
+                var _77_89 = 77 + 89;
+                var _77_90 = 77 + 90;
+                var _77_91 = 77 + 91;
+                var _77_92 = 77 + 92;
+                var _77_93 = 77 + 93;
+                var _77_94 = 77 + 94;
+                var _77_95 = 77 + 95;
+                var _77_96 = 77 + 96;
+                var _77_97 = 77 + 97;
+                var _77_98 = 77 + 98;
+                var _77_99 = 77 + 99;
+                var _77_100 = 77 + 100;
+
+
+                // ___________78
+
+                var _78_75 = 78 + 75;
+                var _78_76 = 78 + 76;
+                var _78_77 = 78 + 77;
+                var _78_78 = 78 + 78;
+                var _78_79 = 78 + 79;
+                var _78_80 = 78 + 80;
+                var _78_81 = 78 + 81;
+                var _78_82 = 78 + 82;
+                var _78_83 = 78 + 83;
+                var _78_84 = 78 + 84;
+                var _78_85 = 78 + 85;
+                var _78_86 = 78 + 86;
+                var _78_87 = 78 + 87;
+                var _78_88 = 78 + 88;
+                var _78_89 = 78 + 89;
+                var _78_90 = 78 + 90;
+                var _78_91 = 78 + 91;
+                var _78_92 = 78 + 92;
+                var _78_93 = 78 + 93;
+                var _78_94 = 78 + 94;
+                var _78_95 = 78 + 95;
+                var _78_96 = 78 + 96;
+                var _78_97 = 78 + 97;
+                var _78_98 = 78 + 98;
+                var _78_99 = 78 + 99;
+                var _78_100 = 78 + 100;
+
+
+                // ___________79
+
+                var _79_75 = 79 + 75;
+                var _79_76 = 79 + 76;
+                var _79_77 = 79 + 77;
+                var _79_78 = 79 + 78;
+                var _79_79 = 79 + 79;
+                var _79_80 = 79 + 80;
+                var _79_81 = 79 + 81;
+                var _79_82 = 79 + 82;
+                var _79_83 = 79 + 83;
+                var _79_84 = 79 + 84;
+                var _79_85 = 79 + 85;
+                var _79_86 = 79 + 86;
+                var _79_87 = 79 + 87;
+                var _79_88 = 79 + 88;
+                var _79_89 = 79 + 89;
+                var _79_90 = 79 + 90;
+                var _79_91 = 79 + 91;
+                var _79_92 = 79 + 92;
+                var _79_93 = 79 + 93;
+                var _79_94 = 79 + 94;
+                var _79_95 = 79 + 95;
+                var _79_96 = 79 + 96;
+                var _79_97 = 79 + 97;
+                var _79_98 = 79 + 98;
+                var _79_99 = 79 + 99;
+                var _79_100 = 79 + 100;
+
+
+                // ___________80
+
+                var _80_75 = 80 + 75;
+                var _80_76 = 80 + 76;
+                var _80_77 = 80 + 77;
+                var _80_78 = 80 + 78;
+                var _80_79 = 80 + 79;
+                var _80_80 = 80 + 80;
+                var _80_81 = 80 + 81;
+                var _80_82 = 80 + 82;
+                var _80_83 = 80 + 83;
+                var _80_84 = 80 + 84;
+                var _80_85 = 80 + 85;
+                var _80_86 = 80 + 86;
+                var _80_87 = 80 + 87;
+                var _80_88 = 80 + 88;
+                var _80_89 = 80 + 89;
+                var _80_90 = 80 + 90;
+                var _80_91 = 80 + 91;
+                var _80_92 = 80 + 92;
+                var _80_93 = 80 + 93;
+                var _80_94 = 80 + 94;
+                var _80_95 = 80 + 95;
+                var _80_96 = 80 + 96;
+                var _80_97 = 80 + 97;
+                var _80_98 = 80 + 98;
+                var _80_99 = 80 + 99;
+                var _80_100 = 80 + 100;
+
+
+                // ___________81
+
+                var _81_75 = 81 + 75;
+                var _81_76 = 81 + 76;
+                var _81_77 = 81 + 77;
+                var _81_78 = 81 + 78;
+                var _81_79 = 81 + 79;
+                var _81_80 = 81 + 80;
+                var _81_81 = 81 + 81;
+                var _81_82 = 81 + 82;
+                var _81_83 = 81 + 83;
+                var _81_84 = 81 + 84;
+                var _81_85 = 81 + 85;
+                var _81_86 = 81 + 86;
+                var _81_87 = 81 + 87;
+                var _81_88 = 81 + 88;
+                var _81_89 = 81 + 89;
+                var _81_90 = 81 + 90;
+                var _81_91 = 81 + 91;
+                var _81_92 = 81 + 92;
+                var _81_93 = 81 + 93;
+                var _81_94 = 81 + 94;
+                var _81_95 = 81 + 95;
+                var _81_96 = 81 + 96;
+                var _81_97 = 81 + 97;
+                var _81_98 = 81 + 98;
+                var _81_99 = 81 + 99;
+                var _81_100 = 81 + 100;
+
+
+                // ___________82
+
+                var _82_75 = 82 + 75;
+                var _82_76 = 82 + 76;
+                var _82_77 = 82 + 77;
+                var _82_78 = 82 + 78;
+                var _82_79 = 82 + 79;
+                var _82_80 = 82 + 80;
+                var _82_81 = 82 + 81;
+                var _82_82 = 82 + 82;
+                var _82_83 = 82 + 83;
+                var _82_84 = 82 + 84;
+                var _82_85 = 82 + 85;
+                var _82_86 = 82 + 86;
+                var _82_87 = 82 + 87;
+                var _82_88 = 82 + 88;
+                var _82_89 = 82 + 89;
+                var _82_90 = 82 + 90;
+                var _82_91 = 82 + 91;
+                var _82_92 = 82 + 92;
+                var _82_93 = 82 + 93;
+                var _82_94 = 82 + 94;
+                var _82_95 = 82 + 95;
+                var _82_96 = 82 + 96;
+                var _82_97 = 82 + 97;
+                var _82_98 = 82 + 98;
+                var _82_99 = 82 + 99;
+                var _82_100 = 82 + 100;
+
+
+                // ___________83
+
+                var _83_75 = 83 + 75;
+                var _83_76 = 83 + 76;
+                var _83_77 = 83 + 77;
+                var _83_78 = 83 + 78;
+                var _83_79 = 83 + 79;
+                var _83_80 = 83 + 80;
+                var _83_81 = 83 + 81;
+                var _83_82 = 83 + 82;
+                var _83_83 = 83 + 83;
+                var _83_84 = 83 + 84;
+                var _83_85 = 83 + 85;
+                var _83_86 = 83 + 86;
+                var _83_87 = 83 + 87;
+                var _83_88 = 83 + 88;
+                var _83_89 = 83 + 89;
+                var _83_90 = 83 + 90;
+                var _83_91 = 83 + 91;
+                var _83_92 = 83 + 92;
+                var _83_93 = 83 + 93;
+                var _83_94 = 83 + 94;
+                var _83_95 = 83 + 95;
+                var _83_96 = 83 + 96;
+                var _83_97 = 83 + 97;
+                var _83_98 = 83 + 98;
+                var _83_99 = 83 + 99;
+                var _83_100 = 83 + 100;
+
+
+                // ___________84
+
+                var _84_75 = 84 + 75;
+                var _84_76 = 84 + 76;
+                var _84_77 = 84 + 77;
+                var _84_78 = 84 + 78;
+                var _84_79 = 84 + 79;
+                var _84_80 = 84 + 80;
+                var _84_81 = 84 + 81;
+                var _84_82 = 84 + 82;
+                var _84_83 = 84 + 83;
+                var _84_84 = 84 + 84;
+                var _84_85 = 84 + 85;
+                var _84_86 = 84 + 86;
+                var _84_87 = 84 + 87;
+                var _84_88 = 84 + 88;
+                var _84_89 = 84 + 89;
+                var _84_90 = 84 + 90;
+                var _84_91 = 84 + 91;
+                var _84_92 = 84 + 92;
+                var _84_93 = 84 + 93;
+                var _84_94 = 84 + 94;
+                var _84_95 = 84 + 95;
+                var _84_96 = 84 + 96;
+                var _84_97 = 84 + 97;
+                var _84_98 = 84 + 98;
+                var _84_99 = 84 + 99;
+                var _84_100 = 84 + 100;
+
+
+                // ___________85
+
+                var _85_75 = 85 + 75;
+                var _85_76 = 85 + 76;
+                var _85_77 = 85 + 77;
+                var _85_78 = 85 + 78;
+                var _85_79 = 85 + 79;
+                var _85_80 = 85 + 80;
+                var _85_81 = 85 + 81;
+                var _85_82 = 85 + 82;
+                var _85_83 = 85 + 83;
+                var _85_84 = 85 + 84;
+                var _85_85 = 85 + 85;
+                var _85_86 = 85 + 86;
+                var _85_87 = 85 + 87;
+                var _85_88 = 85 + 88;
+                var _85_89 = 85 + 89;
+                var _85_90 = 85 + 90;
+                var _85_91 = 85 + 91;
+                var _85_92 = 85 + 92;
+                var _85_93 = 85 + 93;
+                var _85_94 = 85 + 94;
+                var _85_95 = 85 + 95;
+                var _85_96 = 85 + 96;
+                var _85_97 = 85 + 97;
+                var _85_98 = 85 + 98;
+                var _85_99 = 85 + 99;
+                var _85_100 = 85 + 100;
+
+
+                // ___________86
+
+                var _86_75 = 86 + 75;
+                var _86_76 = 86 + 76;
+                var _86_77 = 86 + 77;
+                var _86_78 = 86 + 78;
+                var _86_79 = 86 + 79;
+                var _86_80 = 86 + 80;
+                var _86_81 = 86 + 81;
+                var _86_82 = 86 + 82;
+                var _86_83 = 86 + 83;
+                var _86_84 = 86 + 84;
+                var _86_85 = 86 + 85;
+                var _86_86 = 86 + 86;
+                var _86_87 = 86 + 87;
+                var _86_88 = 86 + 88;
+                var _86_89 = 86 + 89;
+                var _86_90 = 86 + 90;
+                var _86_91 = 86 + 91;
+                var _86_92 = 86 + 92;
+                var _86_93 = 86 + 93;
+                var _86_94 = 86 + 94;
+                var _86_95 = 86 + 95;
+                var _86_96 = 86 + 96;
+                var _86_97 = 86 + 97;
+                var _86_98 = 86 + 98;
+                var _86_99 = 86 + 99;
+                var _86_100 = 86 + 100;
+
+
+                // ___________87
+
+                var _87_75 = 87 + 75;
+                var _87_76 = 87 + 76;
+                var _87_77 = 87 + 77;
+                var _87_78 = 87 + 78;
+                var _87_79 = 87 + 79;
+                var _87_80 = 87 + 80;
+                var _87_81 = 87 + 81;
+                var _87_82 = 87 + 82;
+                var _87_83 = 87 + 83;
+                var _87_84 = 87 + 84;
+                var _87_85 = 87 + 85;
+                var _87_86 = 87 + 86;
+                var _87_87 = 87 + 87;
+                var _87_88 = 87 + 88;
+                var _87_89 = 87 + 89;
+                var _87_90 = 87 + 90;
+                var _87_91 = 87 + 91;
+                var _87_92 = 87 + 92;
+                var _87_93 = 87 + 93;
+                var _87_94 = 87 + 94;
+                var _87_95 = 87 + 95;
+                var _87_96 = 87 + 96;
+                var _87_97 = 87 + 97;
+                var _87_98 = 87 + 98;
+                var _87_99 = 87 + 99;
+                var _87_100 = 87 + 100;
+
+
+                // ___________88
+
+                var _88_75 = 88 + 75;
+                var _88_76 = 88 + 76;
+                var _88_77 = 88 + 77;
+                var _88_78 = 88 + 78;
+                var _88_79 = 88 + 79;
+                var _88_80 = 88 + 80;
+                var _88_81 = 88 + 81;
+                var _88_82 = 88 + 82;
+                var _88_83 = 88 + 83;
+                var _88_84 = 88 + 84;
+                var _88_85 = 88 + 85;
+                var _88_86 = 88 + 86;
+                var _88_87 = 88 + 87;
+                var _88_88 = 88 + 88;
+                var _88_89 = 88 + 89;
+                var _88_90 = 88 + 90;
+                var _88_91 = 88 + 91;
+                var _88_92 = 88 + 92;
+                var _88_93 = 88 + 93;
+                var _88_94 = 88 + 94;
+                var _88_95 = 88 + 95;
+                var _88_96 = 88 + 96;
+                var _88_97 = 88 + 97;
+                var _88_98 = 88 + 98;
+                var _88_99 = 88 + 99;
+                var _88_100 = 88 + 100;
+
+
+                // ___________89
+
+                var _89_75 = 89 + 75;
+                var _89_76 = 89 + 76;
+                var _89_77 = 89 + 77;
+                var _89_78 = 89 + 78;
+                var _89_79 = 89 + 79;
+                var _89_80 = 89 + 80;
+                var _89_81 = 89 + 81;
+                var _89_82 = 89 + 82;
+                var _89_83 = 89 + 83;
+                var _89_84 = 89 + 84;
+                var _89_85 = 89 + 85;
+                var _89_86 = 89 + 86;
+                var _89_87 = 89 + 87;
+                var _89_88 = 89 + 88;
+                var _89_89 = 89 + 89;
+                var _89_90 = 89 + 90;
+                var _89_91 = 89 + 91;
+                var _89_92 = 89 + 92;
+                var _89_93 = 89 + 93;
+                var _89_94 = 89 + 94;
+                var _89_95 = 89 + 95;
+                var _89_96 = 89 + 96;
+                var _89_97 = 89 + 97;
+                var _89_98 = 89 + 98;
+                var _89_99 = 89 + 99;
+                var _89_100 = 89 + 100;
+
+
+                // ___________90
+
+                var _90_75 = 90 + 75;
+                var _90_76 = 90 + 76;
+                var _90_77 = 90 + 77;
+                var _90_78 = 90 + 78;
+                var _90_79 = 90 + 79;
+                var _90_80 = 90 + 80;
+                var _90_81 = 90 + 81;
+                var _90_82 = 90 + 82;
+                var _90_83 = 90 + 83;
+                var _90_84 = 90 + 84;
+                var _90_85 = 90 + 85;
+                var _90_86 = 90 + 86;
+                var _90_87 = 90 + 87;
+                var _90_88 = 90 + 88;
+                var _90_89 = 90 + 89;
+                var _90_90 = 90 + 90;
+                var _90_91 = 90 + 91;
+                var _90_92 = 90 + 92;
+                var _90_93 = 90 + 93;
+                var _90_94 = 90 + 94;
+                var _90_95 = 90 + 95;
+                var _90_96 = 90 + 96;
+                var _90_97 = 90 + 97;
+                var _90_98 = 90 + 98;
+                var _90_99 = 90 + 99;
+                var _90_100 = 90 + 100;
+
+
+                // ___________91
+
+                var _91_75 = 91 + 75;
+                var _91_76 = 91 + 76;
+                var _91_77 = 91 + 77;
+                var _91_78 = 91 + 78;
+                var _91_79 = 91 + 79;
+                var _91_80 = 91 + 80;
+                var _91_81 = 91 + 81;
+                var _91_82 = 91 + 82;
+                var _91_83 = 91 + 83;
+                var _91_84 = 91 + 84;
+                var _91_85 = 91 + 85;
+                var _91_86 = 91 + 86;
+                var _91_87 = 91 + 87;
+                var _91_88 = 91 + 88;
+                var _91_89 = 91 + 89;
+                var _91_90 = 91 + 90;
+                var _91_91 = 91 + 91;
+                var _91_92 = 91 + 92;
+                var _91_93 = 91 + 93;
+                var _91_94 = 91 + 94;
+                var _91_95 = 91 + 95;
+                var _91_96 = 91 + 96;
+                var _91_97 = 91 + 97;
+                var _91_98 = 91 + 98;
+                var _91_99 = 91 + 99;
+                var _91_100 = 91 + 100;
+
+
+                // ___________92
+
+                var _92_75 = 92 + 75;
+                var _92_76 = 92 + 76;
+                var _92_77 = 92 + 77;
+                var _92_78 = 92 + 78;
+                var _92_79 = 92 + 79;
+                var _92_80 = 92 + 80;
+                var _92_81 = 92 + 81;
+                var _92_82 = 92 + 82;
+                var _92_83 = 92 + 83;
+                var _92_84 = 92 + 84;
+                var _92_85 = 92 + 85;
+                var _92_86 = 92 + 86;
+                var _92_87 = 92 + 87;
+                var _92_88 = 92 + 88;
+                var _92_89 = 92 + 89;
+                var _92_90 = 92 + 90;
+                var _92_91 = 92 + 91;
+                var _92_92 = 92 + 92;
+                var _92_93 = 92 + 93;
+                var _92_94 = 92 + 94;
+                var _92_95 = 92 + 95;
+                var _92_96 = 92 + 96;
+                var _92_97 = 92 + 97;
+                var _92_98 = 92 + 98;
+                var _92_99 = 92 + 99;
+                var _92_100 = 92 + 100;
+
+
+                // ___________93
+
+                var _93_75 = 93 + 75;
+                var _93_76 = 93 + 76;
+                var _93_77 = 93 + 77;
+                var _93_78 = 93 + 78;
+                var _93_79 = 93 + 79;
+                var _93_80 = 93 + 80;
+                var _93_81 = 93 + 81;
+                var _93_82 = 93 + 82;
+                var _93_83 = 93 + 83;
+                var _93_84 = 93 + 84;
+                var _93_85 = 93 + 85;
+                var _93_86 = 93 + 86;
+                var _93_87 = 93 + 87;
+                var _93_88 = 93 + 88;
+                var _93_89 = 93 + 89;
+                var _93_90 = 93 + 90;
+                var _93_91 = 93 + 91;
+                var _93_92 = 93 + 92;
+                var _93_93 = 93 + 93;
+                var _93_94 = 93 + 94;
+                var _93_95 = 93 + 95;
+                var _93_96 = 93 + 96;
+                var _93_97 = 93 + 97;
+                var _93_98 = 93 + 98;
+                var _93_99 = 93 + 99;
+                var _93_100 = 93 + 100;
+
+
+                // ___________94
+
+                var _94_75 = 94 + 75;
+                var _94_76 = 94 + 76;
+                var _94_77 = 94 + 77;
+                var _94_78 = 94 + 78;
+                var _94_79 = 94 + 79;
+                var _94_80 = 94 + 80;
+                var _94_81 = 94 + 81;
+                var _94_82 = 94 + 82;
+                var _94_83 = 94 + 83;
+                var _94_84 = 94 + 84;
+                var _94_85 = 94 + 85;
+                var _94_86 = 94 + 86;
+                var _94_87 = 94 + 87;
+                var _94_88 = 94 + 88;
+                var _94_89 = 94 + 89;
+                var _94_90 = 94 + 90;
+                var _94_91 = 94 + 91;
+                var _94_92 = 94 + 92;
+                var _94_93 = 94 + 93;
+                var _94_94 = 94 + 94;
+                var _94_95 = 94 + 95;
+                var _94_96 = 94 + 96;
+                var _94_97 = 94 + 97;
+                var _94_98 = 94 + 98;
+                var _94_99 = 94 + 99;
+                var _94_100 = 94 + 100;
+
+
+                // ___________95
+
+                var _95_75 = 95 + 75;
+                var _95_76 = 95 + 76;
+                var _95_77 = 95 + 77;
+                var _95_78 = 95 + 78;
+                var _95_79 = 95 + 79;
+                var _95_80 = 95 + 80;
+                var _95_81 = 95 + 81;
+                var _95_82 = 95 + 82;
+                var _95_83 = 95 + 83;
+                var _95_84 = 95 + 84;
+                var _95_85 = 95 + 85;
+                var _95_86 = 95 + 86;
+                var _95_87 = 95 + 87;
+                var _95_88 = 95 + 88;
+                var _95_89 = 95 + 89;
+                var _95_90 = 95 + 90;
+                var _95_91 = 95 + 91;
+                var _95_92 = 95 + 92;
+                var _95_93 = 95 + 93;
+                var _95_94 = 95 + 94;
+                var _95_95 = 95 + 95;
+                var _95_96 = 95 + 96;
+                var _95_97 = 95 + 97;
+                var _95_98 = 95 + 98;
+                var _95_99 = 95 + 99;
+                var _95_100 = 95 + 100;
+
+
+                // ___________96
+
+                var _96_75 = 96 + 75;
+                var _96_76 = 96 + 76;
+                var _96_77 = 96 + 77;
+                var _96_78 = 96 + 78;
+                var _96_79 = 96 + 79;
+                var _96_80 = 96 + 80;
+                var _96_81 = 96 + 81;
+                var _96_82 = 96 + 82;
+                var _96_83 = 96 + 83;
+                var _96_84 = 96 + 84;
+                var _96_85 = 96 + 85;
+                var _96_86 = 96 + 86;
+                var _96_87 = 96 + 87;
+                var _96_88 = 96 + 88;
+                var _96_89 = 96 + 89;
+                var _96_90 = 96 + 90;
+                var _96_91 = 96 + 91;
+                var _96_92 = 96 + 92;
+                var _96_93 = 96 + 93;
+                var _96_94 = 96 + 94;
+                var _96_95 = 96 + 95;
+                var _96_96 = 96 + 96;
+                var _96_97 = 96 + 97;
+                var _96_98 = 96 + 98;
+                var _96_99 = 96 + 99;
+                var _96_100 = 96 + 100;
+
+
+                // ___________97
+
+                var _97_75 = 97 + 75;
+                var _97_76 = 97 + 76;
+                var _97_77 = 97 + 77;
+                var _97_78 = 97 + 78;
+                var _97_79 = 97 + 79;
+                var _97_80 = 97 + 80;
+                var _97_81 = 97 + 81;
+                var _97_82 = 97 + 82;
+                var _97_83 = 97 + 83;
+                var _97_84 = 97 + 84;
+                var _97_85 = 97 + 85;
+                var _97_86 = 97 + 86;
+                var _97_87 = 97 + 87;
+                var _97_88 = 97 + 88;
+                var _97_89 = 97 + 89;
+                var _97_90 = 97 + 90;
+                var _97_91 = 97 + 91;
+                var _97_92 = 97 + 92;
+                var _97_93 = 97 + 93;
+                var _97_94 = 97 + 94;
+                var _97_95 = 97 + 95;
+                var _97_96 = 97 + 96;
+                var _97_97 = 97 + 97;
+                var _97_98 = 97 + 98;
+                var _97_99 = 97 + 99;
+                var _97_100 = 97 + 100;
+
+
+                // ___________98
+
+                var _98_75 = 98 + 75;
+                var _98_76 = 98 + 76;
+                var _98_77 = 98 + 77;
+                var _98_78 = 98 + 78;
+                var _98_79 = 98 + 79;
+                var _98_80 = 98 + 80;
+                var _98_81 = 98 + 81;
+                var _98_82 = 98 + 82;
+                var _98_83 = 98 + 83;
+                var _98_84 = 98 + 84;
+                var _98_85 = 98 + 85;
+                var _98_86 = 98 + 86;
+                var _98_87 = 98 + 87;
+                var _98_88 = 98 + 88;
+                var _98_89 = 98 + 89;
+                var _98_90 = 98 + 90;
+                var _98_91 = 98 + 91;
+                var _98_92 = 98 + 92;
+                var _98_93 = 98 + 93;
+                var _98_94 = 98 + 94;
+                var _98_95 = 98 + 95;
+                var _98_96 = 98 + 96;
+                var _98_97 = 98 + 97;
+                var _98_98 = 98 + 98;
+                var _98_99 = 98 + 99;
+                var _98_100 = 98 + 100;
+
+
+                // ___________99
+
+                var _99_75 = 99 + 75;
+                var _99_76 = 99 + 76;
+                var _99_77 = 99 + 77;
+                var _99_78 = 99 + 78;
+                var _99_79 = 99 + 79;
+                var _99_80 = 99 + 80;
+                var _99_81 = 99 + 81;
+                var _99_82 = 99 + 82;
+                var _99_83 = 99 + 83;
+                var _99_84 = 99 + 84;
+                var _99_85 = 99 + 85;
+                var _99_86 = 99 + 86;
+                var _99_87 = 99 + 87;
+                var _99_88 = 99 + 88;
+                var _99_89 = 99 + 89;
+                var _99_90 = 99 + 90;
+                var _99_91 = 99 + 91;
+                var _99_92 = 99 + 92;
+                var _99_93 = 99 + 93;
+                var _99_94 = 99 + 94;
+                var _99_95 = 99 + 95;
+                var _99_96 = 99 + 96;
+                var _99_97 = 99 + 97;
+                var _99_98 = 99 + 98;
+                var _99_99 = 99 + 99;
+                var _99_100 = 99 + 100;
+
+
+                // ___________100
+
+                var _100_75 = 100 + 75;
+                var _100_76 = 100 + 76;
+                var _100_77 = 100 + 77;
+                var _100_78 = 100 + 78;
+                var _100_79 = 100 + 79;
+                var _100_80 = 100 + 80;
+                var _100_81 = 100 + 81;
+                var _100_82 = 100 + 82;
+                var _100_83 = 100 + 83;
+                var _100_84 = 100 + 84;
+                var _100_85 = 100 + 85;
+                var _100_86 = 100 + 86;
+                var _100_87 = 100 + 87;
+                var _100_88 = 100 + 88;
+                var _100_89 = 100 + 89;
+                var _100_90 = 100 + 90;
+                var _100_91 = 100 + 91;
+                var _100_92 = 100 + 92;
+                var _100_93 = 100 + 93;
+                var _100_94 = 100 + 94;
+                var _100_95 = 100 + 95;
+                var _100_96 = 100 + 96;
+                var _100_97 = 100 + 97;
+                var _100_98 = 100 + 98;
+                var _100_99 = 100 + 99;
+                var _100_100 = 100 + 100;
 
                 if (get_prelim_value.innerHTML != 0 & get_midterm_value.innerHTML != 0 & (get_prefinal_value.innerHTML == 0 | confirmation_prefinal > 0) & (get_final_value.innerHTML == 0 | confirmation_final > 0)) {
 
@@ -5999,16 +6774,6 @@ $student_name = $firstname . " " . $middlename[0] . ". " . $lastname;
                         }
                     }
 
-                    // alert("prefinal= "+predict_prefinal);
-                    // alert("final= "+predict_final);
-
-                    // if(random_array == get_random_array){
-                    //   predict_prefinal = new_prefinal;
-                    //   predict_final = new_final;
-                    //   alert("newPrefinal="+new_prefinal+"newFinal="+new_final);
-                    // }
-
-
                     var get_prefinal_prediction = document.getElementById("prefinal_grade_prediction");
                     var get_final_prediction = document.getElementById("final_grade_prediction");
 
@@ -6022,262 +6787,45 @@ $student_name = $firstname . " " . $middlename[0] . ". " . $lastname;
                     var student_no = document.getElementById("get_student_no").value;
                     var semester_value = document.getElementById("get_semester").value;
 
-                    // var xhr = new XMLHttpRequest();
-                    // xhr.open('POST', 'save_prediction.php?prefinal=' + predict_prefinal + '&final=' + predict_final + '&id=' + student_no + '&s_=' + semester_value, true);
-                    // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                    // xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-                    // xhr.onreadystatechange = function() {
-                    //     if (xhr.readyState == 4 && xhr.status == 200) {
-                    //         var result = xhr.responseText;
-                    //         console.log(result);
-                    //         console.log('prefinal:' + predict_prefinal + 'final:' + predict_final);
-                    //         window.location.reload();
-                    //     }
-                    // }
-                    // xhr.send();
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'save_prediction.php?prefinal=' + predict_prefinal + '&final=' + predict_final + '&equivalent=' + selected_average + '&id=' + student_no + '&s_=' + semester_value, true);
+                    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            var result = xhr.responseText;
+                            console.log(result);
+                            console.log('prefinal:' + predict_prefinal + 'final:' + predict_final);
+                            window.location.reload();
+                        }
+                    }
+                    xhr.send();
 
                     console.log(parseInt(randomNumber) + " top");
 
                 } else if (get_prelim_value.innerHTML != 0 & get_midterm_value.innerHTML != 0 & get_prefinal_value.innerHTML != 0 & (get_final_value.innerHTML == 0 | confirmation_final > 0)) {
 
-                    // console.log(parseInt(randomNumber) + "sa idaeom");
-
-                    // _75
-                    if (((prelim_midterm + new_prefinal + 75) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 75) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "75");
-                        grade_array.push("75");
-                        // console.log(grade_array);
-                        new_final = 75;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 76) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 76) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "76");
-                        grade_array.push("76");
-                        // console.log(grade_array);
-                        new_final = 76;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 77) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 77) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "77");
-                        grade_array.push("77");
-                        // console.log(grade_array);
-                        new_final = 77;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 78) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 78) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "78");
-                        grade_array.push("78");
-                        // console.log(grade_array);
-                        new_final = 78;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 79) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 79) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "79");
-                        grade_array.push("79");
-                        // console.log(grade_array);
-                        new_final = 79;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 80) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 80) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "80");
-                        grade_array.push("80");
-                        // console.log(grade_array);
-                        new_final = 80;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 81) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 81) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "81");
-                        grade_array.push("81");
-                        // console.log(grade_array);
-                        new_final = 81;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 82) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 82) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "82");
-                        grade_array.push("82");
-                        // console.log(grade_array);
-                        new_final = 82;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 83) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 83) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "83");
-                        grade_array.push("83");
-                        // console.log(grade_array);
-                        new_final = 83;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 84) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 84) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "84");
-                        grade_array.push("84");
-                        // console.log(grade_array);
-                        new_final = 84;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 85) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 85) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "85");
-                        grade_array.push("85");
-                        // console.log(grade_array);
-                        new_final = 85;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 86) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 86) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "86");
-                        grade_array.push("86");
-                        // console.log(grade_array);
-                        new_final = 86;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 87) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 87) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "87");
-                        grade_array.push("87");
-                        // console.log(grade_array);
-                        new_final = 87;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 88) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 88) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "88");
-                        grade_array.push("88");
-                        // console.log(grade_array);
-                        new_final = 88;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 89) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 89) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "89");
-                        grade_array.push("89");
-                        // console.log(grade_array);
-                        new_final = 89;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 90) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 90) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "90");
-                        grade_array.push("90");
-                        // console.log(grade_array);
-                        new_final = 90;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 91) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 91) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "91");
-                        grade_array.push("91");
-                        // console.log(grade_array);
-                        new_final = 91;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 92) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 92) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "92");
-                        grade_array.push("92");
-                        // console.log(grade_array);
-                        new_final = 92;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 93) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 93) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "93");
-                        grade_array.push("93");
-                        // console.log(grade_array);
-                        new_final = 93;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 94) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 94) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "94");
-                        grade_array.push("94");
-                        // console.log(grade_array);
-                        new_final = 94;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 95) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 95) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "95");
-                        grade_array.push("95");
-                        // console.log(grade_array);
-                        new_final = 95;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 96) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 96) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "96");
-                        grade_array.push("96");
-                        // console.log(grade_array);
-                        new_final = 96;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 97) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 97) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "97");
-                        grade_array.push("97");
-                        // console.log(grade_array);
-                        new_final = 97;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 98) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 98) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "98");
-                        grade_array.push("98");
-                        // console.log(grade_array);
-                        new_final = 98;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 99) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 99) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "99");
-                        grade_array.push("99");
-                        // console.log(grade_array);
-                        new_final = 99;
-                        // alert(grade_array);
-                    }
-
-                    if (((prelim_midterm + new_prefinal + 100) / 4 >= randomNumber) & (prelim_midterm + new_prefinal + 100) / 4 <= parseInt(randomNumber) + 1) {
-                        // console.log(parseInt(randomNumber) + "100");
-                        grade_array.push("100");
-                        // console.log(grade_array);
-                        new_final = 100;
-                        // alert(grade_array);
+                    for (let new_final = 75; new_final <= 100; new_final++) {
+                        if (((prelim_midterm + new_prefinal + new_final) / 4 >= randomNumber) &&
+                            ((prelim_midterm + new_prefinal + new_final) / 4 <= parseInt(randomNumber) + 1)) {
+                            grade_array.push(new_final.toString());
+                        }
                     }
 
 
-                    // grade_array.count();
-                    // for(i=0;i<=grade_array.length;i++){
-                    // alert(i+"."+grade_array[i]);
-                    // }
-
-                    // alert Umpisa iya
-
-                    // alert(grade_array.length);
-                    // alert(grade_array);
                     get_random_array = Math.floor(Math.random() * grade_array.length);
                     random_array = get_random_array;
                     predict_grade_array = grade_array[random_array];
 
-
                     var get_final_prediction = document.getElementById("final_grade_prediction");
 
-                    // location.relaod();
-                    // get_prefinal_prediction.value = predict_prefinal;
                     get_final_prediction.innerHTML = predict_grade_array;
 
-                    // console.log(grade_array);
                     var student_no = document.getElementById("get_student_no").value;
                     var semester_value = document.getElementById("get_semester").value;
 
                     var xhr = new XMLHttpRequest();
-                    xhr.open('POST', 'save_prediction.php?final=' + predict_grade_array + '&id=' + student_no + '&s_=' + semester_value, true);
+                    xhr.open('POST', 'save_prediction.php?final=' + predict_grade_array + '&equivalent=' + selected_average + '&id=' + student_no + '&s_=' + semester_value, true);
                     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
                     xhr.onreadystatechange = function() {
@@ -6293,12 +6841,6 @@ $student_name = $firstname . " " . $middlename[0] . ". " . $lastname;
                 }
             }
         }
-
-        // if(prelim.innerHTML != 0 & midterm.innerHTML != 0 & prefinal.innerHTML != 0 & final.innerHTML  == 0){
-        //   alert("sabe may sero");
-        // }
-
-        // alert(prelim.innerHTML+"|"+midterm.innerHTML+"|"+prefinal.innerHTML+"|"+final.innerHTML);
     </script>
 
 </div>

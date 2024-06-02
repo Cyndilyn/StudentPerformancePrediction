@@ -16,6 +16,11 @@ if (isset($_GET["final"])) {
     echo $final . "\n";
 }
 
+if (isset($_GET["equivalent"])) {
+    $equivalent = $_GET["equivalent"];
+    echo $equivalent . "\n";
+}
+
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
 }
@@ -28,17 +33,17 @@ if ((isset($_GET["prefinal"])) & (isset($_GET["final"]))) {
     $final_grade_semester = "final" . $grade_period;
 
     mysqli_query($connections, "UPDATE $prefinal_grade_semester SET 
-prefinal_prediction='$prefinal' WHERE student_no='$id'");
+prefinal_prediction='$prefinal', equivalent='$equivalent' WHERE student_no='$id'");
     // echo $prefinal_grade_semester."\n";
 
     mysqli_query($connections, "UPDATE $final_grade_semester SET 
-final_prediction='$final' WHERE student_no='$id'");
+final_prediction='$final', equivalent='$equivalent' WHERE student_no='$id'");
     // echo $prefinal_grade_semester."\n";
 
 } else if ((isset($_GET["final"]))) {
     $final_grade_semester = "final" . $grade_period;
 
     mysqli_query($connections, "UPDATE $final_grade_semester SET 
-final_prediction='$final' WHERE student_no='$id'");
+final_prediction='$final', equivalent='$equivalent' WHERE student_no='$id'");
 }
 echo $final_grade_semester;
