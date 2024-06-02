@@ -175,7 +175,6 @@ $student_name = $firstname . " " . $middlename[0] . ". " . $lastname;
                     $prefinal_written_test = $row_prefinal["prefinal_written_test"]; //ok
 
                     $prefinal_prediction = $row_prefinal["prefinal_prediction"];
-                    $equivalent = $row_prefinal["equivalent"];
 
                     if (
                         $prefinal_output_1 == 0 && $prefinal_output_2 == 0 &&
@@ -186,6 +185,7 @@ $student_name = $firstname . " " . $middlename[0] . ". " . $lastname;
                         if ($prefinal_prediction > 0) {
                             $prefinal_prediction = $row_prefinal["prefinal_prediction"];
                             $confirm_prefinal_prediction = $prefinal_prediction;
+                            $prefinal_grade = 0;
                         } else {
                             $prefinal_grade = 0;
                             $prefinal_prediction = 0;
@@ -227,6 +227,7 @@ $student_name = $firstname . " " . $middlename[0] . ". " . $lastname;
                         if ($final_prediction > 0) {
                             $final_prediction = $row_final["final_prediction"];
                             $confirm_final_prediction = $final_prediction;
+                            $final_grade = 0;
                         } else {
                             $final_grade = 0;
                             $final_prediction = 0;
@@ -1088,6 +1089,7 @@ $student_name = $firstname . " " . $middlename[0] . ". " . $lastname;
                 // Do nothing here
                 // alert('selected');
             } else {
+
                 if (selected_average == "1") {
                     randomNumber = Math.floor(Math.random() * 3) + 98;
                     // alert(randomNumber);

@@ -537,7 +537,6 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
         $prefinal_written_test = $row_prefinal["prefinal_written_test"]; //ok
 
         $prefinal_prediction = $row_prefinal["prefinal_prediction"];
-        $equivalent = $row_prefinal["equivalent"];
 
         if (
           $prefinal_output_1 <= 0 && $prefinal_output_2 <= 0 &&
@@ -799,18 +798,6 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
           </td>
           <td>
             <?php
-            // if(($prelim_grade>0) && ($midterm_grade>0) && ($prefinal_grade > 0) && ($final_grade>0)){
-            //   $average = ($prelim_grade + $midterm_grade + $prefinal_grade + $final_grade) / 4;
-            //   echo number_format((float)$average,2,".","");
-            // }else if(($prelim_grade>0) && ($midterm_grade>0) && ($prefinal_prediction > 0) && ($final_prediction>0)){
-            //   $average = ($prelim_grade + $midterm_grade + $prefinal_prediction + $final_prediction) / 4;
-            //   echo "<h6>".number_format((float)$average,2,".","")."</h6>";
-            // }else if(($prelim_grade>0) && ($midterm_grade>0) && ($prefinal_grade > 0) && ($final_prediction>0)){
-            //   $average = ($prelim_grade + $midterm_grade + $prefinal_grade + $final_prediction) / 4;
-            //   echo "<h6>".number_format((float)$average,2,".","")."</h6>";
-            // }else{
-            //   echo "---";
-            // }
 
             if ((floatval($prelim_grade) > 0) && (floatval($midterm_grade) > 0) && (floatval($prefinal_grade) > 0) && (floatval($final_grade) > 0)) {
 
@@ -825,8 +812,11 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
               }
             } elseif ((floatval($prelim_grade) > 0) && (floatval($midterm_grade) > 0) && (floatval($prefinal_grade) == 0) && (floatval($final_grade) == 0)) {
 
-              $average = (floatval($prefinal_prediction) * 0.3) + (floatval($final_prediction) * 0.7);
-              echo "<h6>" . round($average, 2) . "</h6>";
+              if ($prefinal_prediction == "" && $final_prediction == "") {
+              } else {
+                $average = (floatval($prefinal_prediction) * 0.3) + (floatval($final_prediction) * 0.7);
+                echo "<h6>" . round($average, 2) . "</h6>";
+              }
             }
 
             ?>

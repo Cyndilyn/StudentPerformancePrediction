@@ -2,49 +2,48 @@
 
 include("../bins/connections.php");
 
-if(isset($_GET["s_"])){
+if (isset($_GET["s_"])) {
     $grade_period = $_GET["s_"];
 }
 
-if(isset($_GET["prefinal"])){
+if (isset($_GET["prefinal"])) {
     $prefinal = $_GET["prefinal"];
-    echo $prefinal."\n";
+    echo $prefinal . "\n";
 }
 
-if(isset($_GET["final"])){
+if (isset($_GET["final"])) {
     $final = $_GET["final"];
-    echo $final."\n";
+    echo $final . "\n";
 }
 
-if(isset($_GET["id"])){
+if (isset($_GET["equivalent"])) {
+    $equivalent = $_GET["equivalent"];
+    echo $equivalent . "\n";
+}
+
+if (isset($_GET["id"])) {
     $id = $_GET["id"];
 }
 
-echo $id."\n";
+echo $id . "\n";
 
 
-if((isset($_GET["prefinal"])) & (isset($_GET["final"]))){
-    $prefinal_grade_semester = "prefinal".$grade_period;
-    $final_grade_semester = "final".$grade_period;
+if ((isset($_GET["prefinal"])) & (isset($_GET["final"]))) {
+    $prefinal_grade_semester = "prefinal" . $grade_period;
+    $final_grade_semester = "final" . $grade_period;
 
-mysqli_query($connections, "UPDATE $prefinal_grade_semester SET 
+    mysqli_query($connections, "UPDATE $prefinal_grade_semester SET 
 prefinal_prediction='$prefinal' WHERE student_no='$id'");
-// echo $prefinal_grade_semester."\n";
+    // echo $prefinal_grade_semester."\n";
 
-mysqli_query($connections, "UPDATE $final_grade_semester SET 
-final_prediction='$final' WHERE student_no='$id'");
-// echo $prefinal_grade_semester."\n";
+    mysqli_query($connections, "UPDATE $final_grade_semester SET 
+final_prediction='$final', equivalent='$equivalent' WHERE student_no='$id'");
+    // echo $prefinal_grade_semester."\n";
 
-}else if(isset($_GET["final"])){
-    $final_grade_semester = "final".$grade_period;
+} else if (isset($_GET["final"])) {
+    $final_grade_semester = "final" . $grade_period;
 
-mysqli_query($connections, "UPDATE $final_grade_semester SET 
-final_prediction='$final' WHERE student_no='$id'");
-
+    mysqli_query($connections, "UPDATE $final_grade_semester SET 
+final_prediction='$final', equivalent='$equivalent' WHERE student_no='$id'");
 }
 echo $final_grade_semester;
-
-
-    
-
-?>
