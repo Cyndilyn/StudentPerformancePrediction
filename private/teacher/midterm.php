@@ -263,18 +263,7 @@ $check_prelim_grade = $prelim_output_1 + $prelim_output_2 + $prelim_performance_
   <tr>
   <td><?php echo $student_no; ?></td>
   <td><?php echo $fullname; ?></td>
-  <!-- <td><a href="#"><?php /* echo $midterm_formative_assessment_1; */ ?></a></td> 
-  <td><a href="#"><?php /* echo $midterm_formative_assessment_2; */ ?></a></td> 
-  <td><a href="#"><?php /* echo $midterm_formative_assessment_3; */ ?></a></td> 
-  <td><a href="#"><?php /* echo $midterm_formative_assessment_4; */ ?></a></td> 
-  <td><a href="#"><?php /* echo $midterm_formative_assessment_5; */ ?></a></td> 
-  <td><a href="#"><?php /* echo $midterm_formative_assessment_6; */ ?></a></td> 
-  <td><a href="#"><?php /* echo $midterm_formative_assessment_7; */ ?></a></td> 
-  <td><a href="#"><?php /* echo $midterm_formative_assessment_8; */ ?></a></td> 
-  <td><a href="#"><?php /* echo $midterm_formative_assessment_9; */ ?></a></td> 
-  <td><a href="#"><?php /* echo $midterm_formative_assessment_10; */ ?></a></td> 
-  <td><a href="#"><?php /* echo $midterm_formative_assessment_total_score; */ ?></a></td> 
-  <td><a href="#"><?php /* echo $midterm_formative_assessment_base; */ ?></a></td>  -->
+  
   <td><a class="text-primary"><?php echo $midterm_output_1; ?></a></td> 
   <td><a class="text-primary"><?php echo $midterm_output_2; ?></a></td> 
   <td><a class="text-danger"><?php echo $midterm_output_total_score; ?></a></td> 
