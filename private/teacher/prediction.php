@@ -112,7 +112,7 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
   }
 
   table tbody::-webkit-scrollbar {
-    width: 10px;
+    width: 3px;
   }
 
   table tbody::-webkit-scrollbar-track {
@@ -346,7 +346,7 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
 <table border="1" class="table table-hover mt-3 col-sm">
   <thead>
     <tr>
-      <th class="px-3 text-center bg-info text-white" colspan="10">Student Grade</th>
+      <th class="px-3 text-center bg-info text-white" colspan="9">Student Grade</th>
     </tr><!-- Preliminary Here -->
 
     <tr class="text-center">
@@ -359,7 +359,6 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
       <th class="px-3 bg-secondary text-white" id="average">Average</th>
       <th class="px-3 bg-secondary text-white" id="average">Equivalent</th>
       <th class="px-3 bg-secondary text-white" id="remarks">Remarks</th>
-      <th class="px-3 bg-dark text-white" id="prediction1">Prediction</th>
     </tr>
 
   </thead>
@@ -491,6 +490,8 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
 
           $prelim_grade = $prelim_output_weight + $prelim_performance_weight + $prelim_written_test_weight;
 
+          $prelim_grade = ($prelim_grade * 0.70);
+
           $prelim_grade = number_format((float)$prelim_grade, 2, ".", "");
         }
 
@@ -524,7 +525,7 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
           $midterm_output_weight = $midterm_output_base * 0.40;
           $midterm_performance_weight = $midterm_performance_base * 0.40;
           $midterm_written_test_weight = $midterm_written_test_base * 0.20;
-          $midterm_grade = $prelim_grade * 0.3 + $midterm_2nd_quarter * 0.7;
+          $midterm_grade = ($prelim_grade * 0.3) + ($midterm_2nd_quarter * 0.7);
 
           $midterm_grade = number_format((float)$midterm_grade, 2, ".", "");
         }
@@ -559,7 +560,7 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
           $prefinal_written_test_weight = $prefinal_written_test_base * 0.20; //ok
 
           $prefinal_3rd_quarter = $prefinal_output_weight + $prefinal_performance_weight + $prefinal_written_test_weight; //ok
-          $prefinal_grade = $midterm_grade * 0.3 + $prefinal_3rd_quarter * 0.7;
+          $prefinal_grade = ($midterm_grade * 0.3) + ($prefinal_3rd_quarter * 0.7);
 
           $prefinal_grade = number_format((float)$prefinal_grade, 2, ".", "");
         }
@@ -766,11 +767,14 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
               if ($prefinal_status > 0) {
                 echo $prefinal_grade . " <sup class='grade_status bg-warning rounded-circle px-1' data-toggle='modal' data-target='#prefinal$student_no'><b>$prefinal_status</b><sup>";
               } else {
-                echo $prefinal_grade;
+                echo $prefinal_grade . "";
               }
             } else {
               if ($prefinal_prediction > 0) {
-                echo "<h6>" . $prefinal_prediction . "</h6>";
+                echo "<h6><sup class='badge badge-warning'>Prediction</sup><br/>" . $prefinal_prediction . "</h6>";
+              } else {
+                // Prediction code here
+                echo "Predict grade if prelim and midterm available";
               }
             }
 
@@ -790,7 +794,15 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
               }
             } else {
               if ($final_prediction > 0) {
-                echo "<h6>" . $final_prediction . "</h6>";
+                echo "<h6><sup class='badge badge-warning'>Prediction</sup><br/>" . $final_prediction . "</h6>";
+              } else {
+
+                if ($prefinal_prediction > 0) {
+                  // Prediction code here
+                  echo "Predict grade if prelim, midterm, and prefinal (prediction) available";
+                } else {
+                  echo "Predict grade if prelim, midterm, and prefinal available";
+                }
               }
             }
 
@@ -801,21 +813,21 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
 
             if ((floatval($prelim_grade) > 0) && (floatval($midterm_grade) > 0) && (floatval($prefinal_grade) > 0) && (floatval($final_grade) > 0)) {
 
-              $average = (floatval($prefinal_grade) * 0.3) + (floatval($final_4th_quarter) * 0.7);
-              echo "<h6>" . round($average, 2) . "</h6>";
+              $average = floatval($prelim_grade) + floatval($midterm_grade) + floatval($prefinal_grade) + floatval($final_grade);
+              echo "<h6>" . round(($average / 4), 2) . "</h6>";
             } elseif ((floatval($prelim_grade) > 0) && (floatval($midterm_grade) > 0) && (floatval($prefinal_grade) > 0) && (floatval($final_grade) == 0)) {
 
               if ($final_prediction == "") {
               } else {
-                $average = (floatval($prefinal_grade) * 0.3) + (floatval($final_prediction) * 0.7);
-                echo "<h6>" . round($average, 2) . "</h6>";
+                $average =  floatval($prelim_grade) + floatval($midterm_grade) + floatval($prefinal_grade) + (floatval($prefinal_grade) * 0.3) + (floatval($final_prediction) * 0.7);
+                echo "<h6>" . round(($average / 4), 2) . "</h6>";
               }
             } elseif ((floatval($prelim_grade) > 0) && (floatval($midterm_grade) > 0) && (floatval($prefinal_grade) == 0) && (floatval($final_grade) == 0)) {
 
               if ($prefinal_prediction == "" && $final_prediction == "") {
               } else {
-                $average = (floatval($prefinal_prediction) * 0.3) + (floatval($final_prediction) * 0.7);
-                echo "<h6>" . round($average, 2) . "</h6>";
+                $average = floatval($prelim_grade) + floatval($midterm_grade) + ((floatval($midterm_grade) * 0.30) + (floatval($prefinal_prediction) * 0.70)) + ((floatval($prefinal_prediction) * 0.30) + floatval($final_prediction) * 0.7);
+                echo "<h6>" . round(($average / 4), 2) . "</h6>";
               }
             }
 
@@ -825,48 +837,6 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
             <?php
 
             if (($prelim_grade > 0) && ($midterm_grade > 0) && ($prefinal_grade > 0) && ($final_grade > 0)) {
-
-              switch (true) {
-                  // case ($average <= 74.4):
-                  //     $equivalent = "5";
-                  //     break;
-                case ($average >= 74.5 && $average <= 76.49):
-                  $equivalent = "3";
-                  break;
-                case ($average >= 76.5 && $average <= 79.49):
-                  $equivalent = "2.75";
-                  break;
-                case ($average >= 79.5 && $average <= 82.49):
-                  $equivalent = "2.5";
-                  break;
-                case ($average >= 82.5 && $average <= 85.49):
-                  $equivalent = "2.25";
-                  break;
-                case ($average >= 85.5 && $average <= 88.49):
-                  $equivalent = "2";
-                  break;
-                case ($average >= 88.5 && $average <= 91.49):
-                  $equivalent = "1.75";
-                  break;
-                case ($average >= 91.5 && $average <= 94.49):
-                  $equivalent = "1.5";
-                  break;
-                case ($average >= 94.5 && $average <= 97.49):
-                  $equivalent = "1.25";
-                  break;
-                case ($average >= 97.5 && $average <= 100):
-                  $equivalent = "1";
-                  break;
-
-                default:
-                  $equivalent = "---";
-              }
-
-              if ($average > 0 && $average <= 74.4) {
-                $equivalent = "5";
-              }
-
-
               echo $equivalent;
             } else {
               if (($prelim_grade > 0) && ($midterm_grade > 0) && ($prefinal_prediction > 0) && ($final_prediction > 0)) {
@@ -898,42 +868,6 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
             ?>
           </td>
 
-          <td>
-            <?php
-
-
-            if (($prelim_grade > 0) && ($midterm_grade > 0) && (($prefinal_grade == 0) && ($final_grade == 0) || ($final_grade == 0))) {
-
-              if (isset($_GET["_y"])) {
-                if ($_GET["_y"] == "select_year") {
-                  $get_y = "sem1";
-                } else {
-                  $get_y = $_GET["_y"];
-                }
-              }
-              if (isset($_GET["_c"])) {
-                $get_c = $_GET["_c"];
-              }
-              if (isset($_GET["_s_e_"])) {
-                $get_s_e_ = $_GET["_s_e_"];
-              }
-
-              if (!isset($_GET["_y"]) && !isset($_GET["_c"]) && !isset($_GET["_s_e_"])) {
-                echo '<a href="?id=' . $student_no . '&s_=' . $semester[3] . '&_y=' . 'sem1' . '">Predict</a>';
-              } elseif (isset($_GET["_y"]) && !isset($_GET["_c"]) && !isset($_GET["_s_e_"])) {
-                echo '<a href="?id=' . $student_no . '&s_=' . $semester[3] . '&_y=' . $get_y . '&_c=' . 'BSIT' . '">Predict</a>';
-              } elseif (($_GET["_y"]) && isset($_GET["_c"]) && !isset($_GET["_s_e_"])) {
-                echo '<a href="?id=' . $student_no . '&s_=' . $semester[3] . '&_y=' . $get_y . '&_c=' . $_GET["_c"] . '">Predict</a>';
-              } elseif (($_GET["_y"]) && isset($_GET["_c"]) && isset($_GET["_s_e_"])) {
-                echo '<a href="?id=' . $student_no . '&s_=' . $semester[3] . '&_y=' . $get_y . '&_c=' . $_GET["_c"] . '">Predict</a>';
-              }
-            ?>
-            <?php
-            } else {
-              echo "---";
-            }
-            ?>
-          </td>
         </tr>
 
 
