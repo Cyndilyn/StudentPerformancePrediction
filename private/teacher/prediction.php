@@ -825,48 +825,6 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
             <?php
 
             if (($prelim_grade > 0) && ($midterm_grade > 0) && ($prefinal_grade > 0) && ($final_grade > 0)) {
-
-              switch (true) {
-                  // case ($average <= 74.4):
-                  //     $equivalent = "5";
-                  //     break;
-                case ($average >= 74.5 && $average <= 76.49):
-                  $equivalent = "3";
-                  break;
-                case ($average >= 76.5 && $average <= 79.49):
-                  $equivalent = "2.75";
-                  break;
-                case ($average >= 79.5 && $average <= 82.49):
-                  $equivalent = "2.5";
-                  break;
-                case ($average >= 82.5 && $average <= 85.49):
-                  $equivalent = "2.25";
-                  break;
-                case ($average >= 85.5 && $average <= 88.49):
-                  $equivalent = "2";
-                  break;
-                case ($average >= 88.5 && $average <= 91.49):
-                  $equivalent = "1.75";
-                  break;
-                case ($average >= 91.5 && $average <= 94.49):
-                  $equivalent = "1.5";
-                  break;
-                case ($average >= 94.5 && $average <= 97.49):
-                  $equivalent = "1.25";
-                  break;
-                case ($average >= 97.5 && $average <= 100):
-                  $equivalent = "1";
-                  break;
-
-                default:
-                  $equivalent = "---";
-              }
-
-              if ($average > 0 && $average <= 74.4) {
-                $equivalent = "5";
-              }
-
-
               echo $equivalent;
             } else {
               if (($prelim_grade > 0) && ($midterm_grade > 0) && ($prefinal_prediction > 0) && ($final_prediction > 0)) {
