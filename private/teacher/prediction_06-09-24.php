@@ -55,6 +55,10 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
     cursor: pointer;
   }
 
+  /* .table-hover tbody tr:hover td {
+    background: #4ef0a2;
+    cursor:pointer;
+} */
   .table-hover tbody h6 {
     color: #007bff;
   }
@@ -83,6 +87,11 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
   td:hover .remarks {
     color: #fff;
   }
+
+  /* .passed { color: #5cb85c;}
+.failed { color: #d9534f;} */
+  /* .table-hover tbody .get_h6 td:hover { background-color: #343a40 !important; } */
+  /* td:hover h6 { background-color: #343a40; color: #fff; } */
 
   table tbody {
     display: block;
@@ -120,6 +129,10 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
   table tbody::-webkit-scrollbar-thumb:hover {
     background: #2379db;
   }
+
+  /* .grade_status{
+  background-color
+} */
 </style>
 
 <?php
@@ -134,7 +147,65 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
 
 
 <div class="container-fluid d-inline py-5">
-
+  <!-- <select class="form-control col-2 ml-2 pt-1 pb-2 d-inline text-white text-white bg-info" id="year" onchange="year()">
+  <option value="select_year">Select Year</option>
+  <option value="2018" <?php
+                        // if (isset($_GET['_y'])) {
+                        //   if ($_GET['_y'] == "2018") {
+                        //     echo "selected";
+                        //   }
+                        // }
+                        ?> >2018</option>
+  <option value="2017" <?php
+                        // if (isset($_GET['_y'])) {
+                        //   if ($_GET['_y'] == "2017") {
+                        //     echo "selected";
+                        //   }
+                        // }
+                        ?> >2017</option>
+  <option value="2016" <?php
+                        // if (isset($_GET['_y'])) {
+                        //   if ($_GET['_y'] == "2016") {
+                        //     echo "selected";
+                        //   }
+                        // }
+                        ?> >2016</option>
+  <option value="2015" <?php
+                        // if (isset($_GET['_y'])) {
+                        //   if ($_GET['_y'] == "2015") {
+                        //     echo "selected";
+                        //   }
+                        // }
+                        ?> >2015</option>
+  <option value="2014" <?php
+                        // if (isset($_GET['_y'])) {
+                        //   if ($_GET['_y'] == "2014") {
+                        //     echo "selected";
+                        //   }
+                        // }
+                        ?> >2014</option>
+  <option value="2013" <?php
+                        // if (isset($_GET['_y'])) {
+                        //   if ($_GET['_y'] == "2013") {
+                        //     echo "selected";
+                        //   }
+                        // }
+                        ?> >2013</option>
+  <option value="2012" <?php
+                        // if (isset($_GET['_y'])) {
+                        //   if ($_GET['_y'] == "2012") {
+                        //     echo "selected";
+                        //   }
+                        // }
+                        ?> >2012</option>
+  <option value="2011" <?php
+                        // if (isset($_GET['_y'])) {
+                        //   if ($_GET['_y'] == "2011") {
+                        //     echo "selected";
+                        //   }
+                        // }
+                        ?> >2011</option>
+</select> -->
   <select class="form-control col-2 ml-2 pt-1 pb-2 d-inline text-white text-white bg-info" id="year" onchange="year()">
     <option value="select_year">Select Year</option>
 
@@ -182,6 +253,11 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
                           } ?>>BSCS</option>
   </select>
 
+  <!-- <select class="form-control col-2 ml-2 pt-1 pb-2 d-inline <?php /* if(!isset($_GET['_c'])){ echo "bg-secondary"; }else{ if($_GET['_c'] == "select_course"){ echo "bg-secondary"; }else{ echo "bg-info"; }} */ ?> text-white" <?php /* if(!isset($_GET['_c'])){ echo "disabled"; }else{ if($_GET['_c'] == "select_course"){ echo "disabled"; }} */ ?> id="subject" onchange="subject()">
+  <option value="select_subject">Select Subject</option>
+  <option value="application_programming1" <?php /* if(isset($_GET['_s'])){ if($_GET['_s'] == "application_programming1"){ echo "selected"; }} */ ?> >Application Programming 1</option>
+  <option value="application_programming2" <?php /* if(isset($_GET['_s'])){ if($_GET['_s'] == "application_programming2"){ echo "selected"; }} */ ?> >Application Programming 2</option>
+</select> -->
 
 
   <select class="form-control col-2 ml-2 pt-1 pb-2 d-inline <?php if (!isset($_GET['_c'])) {
@@ -367,42 +443,6 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
         // echo "<script>alert('there is no year');</script>";
       }
 
-      // // Function to generate a random equivalent for prediction
-      // function generateRandomEquivalent()
-      // {
-      //   // Generate a random number between 1 and 5 (inclusive) for equivalent
-      //   return rand(1, 5);
-      // }
-
-      function generateRandomEquivalent()
-      {
-        // Generate a random number from the specified range of equivalents
-        $equivalents = array(1, 1.25, 1.5, 1.75, 2, 2.25);
-        $random_index = array_rand($equivalents);
-        return $equivalents[$random_index];
-      }
-
-
-      function getValueFromEquivalent($equivalent)
-      {
-        // Determine the value based on the equivalent
-        if ($equivalent == 2.25) {
-          return 85.4;
-        } elseif ($equivalent == 2) {
-          return mt_rand(855, 884) / 10;
-        } elseif ($equivalent == 1.75) {
-          return mt_rand(885, 914) / 10;
-        } elseif ($equivalent == 1.5) {
-          return mt_rand(915, 944) / 10;
-        } elseif ($equivalent == 1.25) {
-          return mt_rand(945, 974) / 10;
-        } elseif ($equivalent == 1) {
-          return mt_rand(975, 1000) / 10;
-        } else {
-          // Handle invalid equivalents
-          return null;
-        }
-      }
 
 
       while ($row_prelim = mysqli_fetch_assoc($prelim_qry)) {
@@ -450,7 +490,7 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
 
           $prelim_grade = $prelim_output_weight + $prelim_performance_weight + $prelim_written_test_weight;
 
-          $prelim_grade = $prelim_grade;
+          $prelim_grade = ($prelim_grade * 0.70);
 
           $prelim_grade = number_format((float)$prelim_grade, 2, ".", "");
         }
@@ -559,6 +599,10 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
           $final_grade = number_format((float)$final_grade, 2, ".", "");
         }
 
+
+
+        // $prefinal_prediction = 0;
+        // $final_prediction = 0;
         $average_prediction = 0;
         $average = "";
 
@@ -727,25 +771,10 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
               }
             } else {
               if ($prefinal_prediction > 0) {
-
-                // Generate a random equivalent
-                $random_equivalent = generateRandomEquivalent();
-
-                // Determine the value corresponding to the random equivalent
-                $prefinal_prediction = getValueFromEquivalent($random_equivalent);
-
                 echo "<h6><sup class='badge badge-warning'>Prediction</sup><br/>" . $prefinal_prediction . "</h6>";
               } else {
                 // Prediction code here
-
-                // Generate a random equivalent
-                $random_equivalent = generateRandomEquivalent();
-
-                // Determine the value corresponding to the random equivalent
-                $prefinal_prediction = getValueFromEquivalent($random_equivalent);
-
-                echo $prefinal_prediction;
-                // echo $prefinal_prediction . "<br/>Predict grade if prelim and midterm available";
+                echo "Predict grade if prelim and midterm available";
               }
             }
 
@@ -765,35 +794,14 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
               }
             } else {
               if ($final_prediction > 0) {
-
-                // Generate a random equivalent
-                $random_equivalent = generateRandomEquivalent();
-
-                // Determine the value corresponding to the random equivalent
-                $final_prediction = getValueFromEquivalent($random_equivalent);
-
                 echo "<h6><sup class='badge badge-warning'>Prediction</sup><br/>" . $final_prediction . "</h6>";
               } else {
 
                 if ($prefinal_prediction > 0) {
                   // Prediction code here
-
-                  // Generate a random equivalent
-                  $random_equivalent = generateRandomEquivalent();
-
-                  // Determine the value corresponding to the random equivalent
-                  $final_prediction = getValueFromEquivalent($random_equivalent);
-                  echo $final_prediction;
-                  // echo $final_prediction . "<br/>Predict grade if prelim, midterm, and prefinal (prediction) available";
+                  echo "Predict grade if prelim, midterm, and prefinal (prediction) available";
                 } else {
-
-                  // Generate a random equivalent
-                  $random_equivalent = generateRandomEquivalent();
-
-                  // Determine the value corresponding to the random equivalent
-                  $final_prediction = getValueFromEquivalent($random_equivalent);
-                  echo $final_prediction;
-                  // echo $final_prediction . "<br/>Predict grade if prelim, midterm, and prefinal available";
+                  echo "Predict grade if prelim, midterm, and prefinal available";
                 }
               }
             }
@@ -828,15 +836,12 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
           <td>
             <?php
 
-
             if (($prelim_grade > 0) && ($midterm_grade > 0) && ($prefinal_grade > 0) && ($final_grade > 0)) {
               echo $equivalent;
             } else {
               if (($prelim_grade > 0) && ($midterm_grade > 0) && ($prefinal_prediction > 0) && ($final_prediction > 0)) {
-                $equivalent = generateRandomEquivalent();
                 echo "<h6>" . $equivalent . "</h6>";
               } elseif (($prelim_grade > 0) && ($midterm_grade > 0) && ($prefinal_grade > 0) && ($final_prediction > 0)) {
-                $equivalent = generateRandomEquivalent();
                 // $average = ($prelim_grade + $midterm_grade + $prefinal_grade + $final_prediction) / 4;
                 echo "<h6>" . $equivalent . "</h6>";
               }
@@ -981,6 +986,9 @@ E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
     ?>
 
 </table>
+<!-- </div> -->
+
+
 
 <!-- ######################################################################################### -->
 <!-- ################################### Table Ends Here ################################### -->
@@ -1037,6 +1045,25 @@ if (isset($_GET["id"])) {
     window.location.href = "?_y=" + selected_year + "&_c=" + selected_course;
     // alert("hay");
   }
+
+  // function subject(){
+  //   var grading = document.getElementById("grade_period");
+  //   var selected_grading = grading.options[grading.selectedIndex].value;
+
+  //   var year = document.getElementById("year");
+  //   var selected_year = year.options[year.selectedIndex].value;
+
+  //   var course = document.getElementById("course");
+  //   var selected_course = course.options[course.selectedIndex].value;
+
+  //   var subject = document.getElementById("subject");
+  //   var selected_subject = subject.options[subject.selectedIndex].value;
+
+  //   // var selected_semester = f.options[f.selectedIndex].value;
+
+  //   window.location.href = "?redir="+selected_grading+"&_y="+selected_year+"&_c="+selected_course+"&_s="+selected_subject;
+  //   // alert("hay");
+  // }
 
   function semester() {
 
