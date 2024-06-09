@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, initial-scale=1.0">
@@ -19,11 +20,13 @@
     <link rel="stylesheet" href="../../bootstrap-4.4.1/css/bootstrap.min.css"> <!-- Bootstrap4 for offline -->
 
     <link rel="stylesheet" href="../../bins/styles/styles.css">
-    
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
-    
+
     <title>Student Performance Prediction</title>
 
-    </head>
+</head>
 
 <body>

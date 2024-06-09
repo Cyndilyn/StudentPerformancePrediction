@@ -46,20 +46,6 @@ if (isset($_GET["_c"])) {
   $course = "";
 }
 
-
-// if(isset($_GET["_s"])){
-
-//   if($_GET["_s"] == "select_subject"){
-//     $subject = "";
-//   }else{
-//     $subject = $_GET["_s"];
-//   }
-
-
-// }else{
-//   $subject = "";
-// }
-
 // Select Semester here Kara nag tapos
 if (isset($_GET["_s_e_"])) {
 
@@ -78,18 +64,28 @@ if (isset($_GET["_s_e_"])) {
 ?>
 
 
+<style>
+  .table-no-padding td,
+  .table-no-padding th {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+  }
 
-<div class="table-responsive table_table mt-3">
-  <table border="1" class="table table-hover">
+  th {
+    font-weight: 500;
+  }
+</style>
+<div class="table-responsive table_table mt-3 col-12">
+  <table border="1" class="table table-hover table-no-padding">
     <thead>
       <tr>
-        <th class="px-3" colspan="2"></th>
-        <th class="px-3 text-center " style="background-color:#86f9a3;" colspan="17">Preliminary Period</th>
+        <th class="px-3 col-2" colspan="2"></th>
+        <th class="text-center " style="background-color:#86f9a3;" colspan="17">Preliminary Period</th>
       </tr><!-- Preliminary Here -->
 
       <tr>
         <th class="px-3">Student&nbsp;ID</th>
-        <th class="px-3">Student&nbsp;Name</th><!-- <th class="px-5 text-center " style="background-color:#86f9a3;" colspan="12">Formative Assessment</th> -->
+        <th class="px-3 col-2">Student&nbsp;Name</th><!-- <th class="px-5 text-center " style="background-color:#86f9a3;" colspan="12">Formative Assessment</th> -->
         <th class="px-5 text-center " style="background-color:#86f9a3;" colspan="5">Output</th>
         <th class="px-5 text-center " style="background-color:#86f9a3;" colspan="5">Performance</th>
         <th class="px-5 text-cente " style="background-color:#86f9a3;" colspan="3">Major&nbsp;Exam</th>
@@ -100,19 +96,45 @@ if (isset($_GET["_s_e_"])) {
       <tr>
         <th class="px-3"></th>
         <th class="px-3">Highest&nbsp;Possible&nbsp;Score</th><!-- <th class="" style="background-color:#86f9a3;">10</th><th class="" style="background-color:#86f9a3;">10</th><th class="" style="background-color:#86f9a3;">10</th><th class="" style="background-color:#86f9a3;">10</th><th class="" style="background-color:#86f9a3;">10</th><th class="" style="background-color:#86f9a3;">10</th><th class="" style="background-color:#86f9a3;">10</th><th class="" style="background-color:#86f9a3;">10</th><th class="" style="background-color:#86f9a3;">10</th><th class="" style="background-color:#86f9a3;">10</th><th class="" style="background-color:#86f9a3;">100</th><th class="" style="background-color:#86f9a3;">60</th> -->
-        <th class="" style="background-color:#86f9a3;">20</th>
-        <th class="" style="background-color:#86f9a3;">20</th>
-        <th class="" style="background-color:#86f9a3;">40</th>
-        <th class="" style="background-color:#86f9a3;">60</th>
-        <th class="" style="background-color:#86f9a3;">0.40</th>
-        <th class="" style="background-color:#86f9a3;">20</th>
-        <th class="" style="background-color:#86f9a3;">20</th>
-        <th class="" style="background-color:#86f9a3;">40</th>
-        <th class="" style="background-color:#86f9a3;">60</th>
-        <th class="" style="background-color:#86f9a3;">0.40</th>
-        <th class="" style="background-color:#86f9a3;">70</th>
-        <th class="" style="background-color:#86f9a3;">60</th>
-        <th class="" style="background-color:#86f9a3;">0.20</th>
+        <th class="" style="background-color:#86f9a3;">
+          <center>20</center>
+        </th>
+        <th class="" style="background-color:#86f9a3;">
+          <center>20</center>
+        </th>
+        <th class="" style="background-color:#86f9a3;">
+          <center>40</center>
+        </th>
+        <th class="" style="background-color:#86f9a3;">
+          <center>60</center>
+        </th>
+        <th class="" style="background-color:#86f9a3;">
+          <center>0.40</center>
+        </th>
+        <th class="" style="background-color:#86f9a3;">
+          <center>20</center>
+        </th>
+        <th class="" style="background-color:#86f9a3;">
+          <center>20</center>
+        </th>
+        <th class="" style="background-color:#86f9a3;">
+          <center>40</center>
+        </th>
+        <th class="" style="background-color:#86f9a3;">
+          <center>60</center>
+        </th>
+        <th class="" style="background-color:#86f9a3;">
+          <center>0.40</center>
+        </th>
+        <th class="" style="background-color:#86f9a3;">
+          <center>70</center>
+        </th>
+        <th class="" style="background-color:#86f9a3;">
+          <center>60</center>
+        </th>
+        <th class="" style="background-color:#86f9a3;">
+          <center>0.20</center>
+        </th>
         <th class="" style="background-color:#86f9a3;"></th>
         <th class="" style="background-color:#86f9a3;"></th>
       </tr><!-- Preliminary Here -->
@@ -239,7 +261,7 @@ if (isset($_GET["_s_e_"])) {
 
           <tr>
             <td><?php echo $student_no; ?></td>
-            <td><?php echo $fullname; ?></td>
+            <td class="col-2"><?php echo $fullname; ?></td>
             <td>
               <center><a class="text-primary"><?php echo $prelim_output_1; ?></a></center>
             </td>
@@ -258,9 +280,7 @@ if (isset($_GET["_s_e_"])) {
             // echo $prelim_output_weight;
             if ($prelim_output_weight < 30) {
               echo
-              "<td class='text-white' style='background-color: #ff8080;'><center>
-  <h6>" . $prelim_output_weight . "</h6>
-  </center></td>";
+              "<td class='text-white' style='background-color: #ff8080;'><center>" . $prelim_output_weight . "</center></td>";
             } else {
             ?>
               <td>
@@ -296,9 +316,7 @@ if (isset($_GET["_s_e_"])) {
               // echo $prelim_output_weight;
               if ($prelim_performance_weight < 30) {
                 echo
-                "<td class='text-white' style='background-color: #ff8080;'><center>
-  <h6>" . $prelim_performance_weight . "</h6>
-  </center></td>";
+                "<td class='text-white' style='background-color: #ff8080;'><center>" . $prelim_performance_weight . "</center></td>";
               } else {
               ?>
                 <td>
@@ -327,9 +345,7 @@ if (isset($_GET["_s_e_"])) {
                 // echo $prelim_output_weight;
                 if ($prelim_written_test_weight < 15) {
                   echo
-                  "<td class='text-white' style='background-color: #ff8080;'><center>
-  <h6>" . number_format((float)$prelim_written_test_weight, 2, ".", "") . "</h6>
-  </center></td>";
+                  "<td class='text-white' style='background-color: #ff8080;'><center>" . number_format((float)$prelim_written_test_weight, 2, ".", "") . "</center></td>";
                 } else {
                 ?>
                   <td>
@@ -494,13 +510,13 @@ if (isset($_GET["redir"]) & isset($_GET["_y"]) & isset($_GET["_c"]) & isset($_GE
   var semester = document.getElementById("semester");
   var selected_semester = semester.value;
 
-  function relocate() {
-    window.location.href = "studentperformance?redir=" + grading + "&_y=" + selected_year + "&_c=" + selected_course + "&_s_e_=" + selected_semester;
-    // alert("hay");
-  }
+  // function relocate() {
+  //   window.location.href = "studentperformance?redir=" + grading + "&_y=" + selected_year + "&_c=" + selected_course + "&_s_e_=" + selected_semester;
+  //   // alert("hay");
+  // }
 
 
-  get_black = document.getElementById("black1");
+  // get_black = document.getElementById("black1");
 
-  get_black.addEventListener("click", relocate);
+  // get_black.addEventListener("click", relocate);
 </script>

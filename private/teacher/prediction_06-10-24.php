@@ -13,7 +13,7 @@ if (isset($_SESSION["username"])) {
   $my_info = mysqli_fetch_assoc($query_info);
   $account_type = $my_info["account_type"];
 
-  if ($account_type != 1) {
+  if ($account_type != 3) {
 
     header('Location: ../../forbidden');
   }
@@ -103,7 +103,7 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
   }
 
   table tbody::-webkit-scrollbar {
-    width: 10px;
+    width: 3px;
   }
 
   table tbody::-webkit-scrollbar-track {
@@ -121,9 +121,15 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
 </style>
 
 <?php
-include("../bins/admin_nav.php");
+include("../bins/teacher_nav.php");
 ?>
 <br>
+
+
+<!-- <h2 class="text-danger text-center">
+E SAVE DU PREDICTED NUMBERS PARA MA TAW AN IT CHART
+</h2> -->
+
 
 <div class="container-fluid d-inline py-5">
 
@@ -174,6 +180,8 @@ include("../bins/admin_nav.php");
                           } ?>>BSCS</option>
   </select>
 
+
+
   <select class="form-control col-2 ml-2 pt-1 pb-2 d-inline <?php if (!isset($_GET['_c'])) {
                                                               echo "bg-secondary";
                                                             } else {
@@ -206,15 +214,15 @@ include("../bins/admin_nav.php");
   <?php
   if (isset($_GET['_y']) && !isset($_GET['_c']) && !isset($_GET['_s_e_'])) {
   ?>
-    <a href="pdf_files_prediction?_y=<?php echo $_GET["_y"]; ?>" target="_blank" class="btn btn-warning col-1">Print</a>
+    <a href="pdf_files_prediction.php?_y=<?php echo $_GET["_y"]; ?>" target="_blank" class="btn btn-warning col-1">Print</a>
   <?php
   } else if (isset($_GET['_y']) && isset($_GET['_c']) && !isset($_GET['_s_e_'])) {
   ?>
-    <a href="pdf_files_prediction?_y=<?php echo $_GET["_y"]; ?>&_c=<?php echo $_GET["_c"]; ?>" target="_blank" class="btn btn-warning col-1">Print</a>
+    <a href="pdf_files_prediction.php?_y=<?php echo $_GET["_y"]; ?>&_c=<?php echo $_GET["_c"]; ?>" target="_blank" class="btn btn-warning col-1">Print</a>
   <?php
   } else if (isset($_GET['_y']) && isset($_GET['_c']) && isset($_GET['_s_e_'])) {
   ?>
-    <a href="pdf_files_prediction?_y=<?php echo $_GET["_y"]; ?>&_c=<?php echo $_GET["_c"]; ?>&_s_e_=<?php echo $_GET["_s_e_"]; ?>" target="_blank" class="btn btn-warning col-1">Print</a>
+    <a href="pdf_files_prediction.php?_y=<?php echo $_GET["_y"]; ?>&_c=<?php echo $_GET["_c"]; ?>&_s_e_=<?php echo $_GET["_s_e_"]; ?>" target="_blank" class="btn btn-warning col-1">Print</a>
   <?php
   }
   ?>
@@ -465,7 +473,7 @@ include("../bins/admin_nav.php");
           $midterm_output_weight = $midterm_output_base * 0.40;
           $midterm_performance_weight = $midterm_performance_base * 0.40;
           $midterm_written_test_weight = $midterm_written_test_base * 0.20;
-          $midterm_grade = $prelim_grade * 0.3 + $midterm_2nd_quarter * 0.7;
+          $midterm_grade = ($prelim_grade * 0.30) + ($midterm_2nd_quarter * 0.70);
 
           $midterm_grade = number_format((float)$midterm_grade, 2, ".", "");
         }
@@ -481,7 +489,7 @@ include("../bins/admin_nav.php");
 
         if (
           $prefinal_output_1 <= 0 && $prefinal_output_2 <= 0 &&
-          $prefinal_performance_1 <= 0 && $prefinal_performance_1 <= 0 &&
+          $prefinal_performance_1 <= 0 && $prefinal_performance_2 <= 0 &&
           $prefinal_written_test <= 0
         ) {
 
@@ -500,7 +508,7 @@ include("../bins/admin_nav.php");
           $prefinal_written_test_weight = $prefinal_written_test_base * 0.20; //ok
 
           $prefinal_3rd_quarter = $prefinal_output_weight + $prefinal_performance_weight + $prefinal_written_test_weight; //ok
-          $prefinal_grade = $midterm_grade * 0.3 + $prefinal_3rd_quarter * 0.7;
+          $prefinal_grade = ($midterm_grade * 0.3) + ($prefinal_3rd_quarter * 0.7);
 
           $prefinal_grade = number_format((float)$prefinal_grade, 2, ".", "");
         }
@@ -516,7 +524,7 @@ include("../bins/admin_nav.php");
 
         if (
           $final_output_1 <= 0 && $final_output_2 <= 0 &&
-          $final_performance_1 <= 0 && $final_performance_1 <= 0 &&
+          $final_performance_1 <= 0 && $final_performance_2 <= 0 &&
           $final_written_test <= 0
         ) {
 
@@ -532,7 +540,7 @@ include("../bins/admin_nav.php");
           $final_written_test_base = $final_written_test / 70 * 40 + 60;
           $final_written_test_weight = $final_written_test_base * 0.20;
           $final_4th_quarter = $final_output_weight + $final_performance_weight + $final_written_test_weight;
-          $final_grade = $prefinal_grade * 0.3 + $final_4th_quarter * 0.7;
+          $final_grade = ($prefinal_grade * 0.3) + ($final_4th_quarter * 0.7);
 
           $final_grade = number_format((float)$final_grade, 2, ".", "");
         }
@@ -660,7 +668,7 @@ include("../bins/admin_nav.php");
 
     ?>
 
-        <tr class="text-center">
+        <tr class="text-center" data-student-no='<?php echo $student_no; ?>'>
           <td><?php echo $student_no; ?></td>
           <td><?php echo $student_name; ?></td>
 
@@ -684,11 +692,14 @@ include("../bins/admin_nav.php");
             if ($midterm_grade > 0) {
               if ($midterm_status > 0) {
                 echo "<span id='midtermGrade$student_no'>" . $midterm_grade . "</span><sup class='grade_status bg-warning rounded-circle px-1' data-toggle='modal' data-target='#midterm$student_no'><b>$midterm_status</b><sup>";
+                // echo $midterm_grade . " <sup class='grade_status bg-warning rounded-circle px-1' data-toggle='modal' data-target='#midterm$student_no'><b>$midterm_status</b><sup>";
               } else {
                 echo "<span id='midtermGrade$student_no'>" . $midterm_grade . "</span>";
+                // echo $midterm_grade;
               }
             } else {
               echo "<span id='midtermGradeEmpty$student_no'>" . $midterm_grade . "</span>";
+              // echo $midterm_grade;
             }
             ?>
           </td>
@@ -728,6 +739,8 @@ include("../bins/admin_nav.php");
 
           <td>
             <?php
+
+
             if ($final_grade > 0) {
               if ($final_status > 0) {
                 echo $final_grade . " <sup class='grade_status bg-warning rounded-circle px-1' data-toggle='modal' data-target='#final$student_no'><b>$final_status</b><sup>";
@@ -1181,6 +1194,10 @@ include("../bins/admin_nav.php");
 <!-- ################################### Table Ends Here ################################### -->
 <!-- ######################################################################################### -->
 
+<!-- <a href="pdf_files_prediction" target="_blank" class="btn btn-warning fixed-bottom col-1 mb-3 ml-3">Get PDF</a> -->
+
+
+<!-- <a href="pdf_files_prediction?redir=<?php echo $_GET["redir"]; ?>&_y=<?php echo $_GET["_y"]; ?>&_c=<?php echo $_GET["_c"]; ?>&_s_e_=<?php echo $_GET["_s_e_"]; ?>" target="_blank" class="btn btn-warning fixed-bottom col-1 mb-3 ml-3">Get PDF</a> -->
 
 <?php
 if (isset($_GET["id"])) {
