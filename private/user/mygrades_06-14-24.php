@@ -89,83 +89,13 @@ if (isset($_SESSION["username"])) {
   td:hover .remarks {
     color: #fff;
   }
-
-
-
-  /* Custom select container */
-  .custom-select-container {
-    position: relative;
-    display: inline-block;
-    width: 160px;
-  }
-
-  /* Custom select container */
-  .print {
-    position: relative;
-    display: inline-block;
-    background-color: #FFC107;
-    /* background-color: #E0A800; */
-    text-align: center;
-    color: white;
-    padding: 5px 10px;
-    font-size: 14px;
-    cursor: pointer;
-    width: 90px;
-  }
-
-  .print {
-    /* width: 100%; */
-    text-decoration: none;
-    color: black;
-  }
-
-  .print:hover {
-    background-color: #E0A800;
-    text-decoration: none;
-    color: white;
-  }
-
-  /* Custom select displayed element */
-  .select-selected {
-    background-color: #17a2b8;
-    color: white;
-    padding: 5px 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-  }
-
-  /* Custom select dropdown */
-  .select-items {
-    position: absolute;
-    background-color: #f8f9fa;
-    border: 1px solid #ccc;
-    z-index: 99;
-    width: 100%;
-    top: 35px;
-    display: none;
-  }
-
-  /* Custom select items */
-  .select-items div {
-    color: #343a40;
-    padding: 8px 12px;
-    cursor: pointer;
-  }
-
-  /* Highlight selected item */
-  .select-items div:hover,
-  .same-as-selected {
-    background-color: #17a2b8;
-    color: white;
-  }
-
-  .select-disabled .select-selected {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
 </style>
 
+
+<center>
+  <h1 class="py-3 text-info px-1">View Grades</h1>
+  <!-- <h1 class="py-3 text-info px-1">Welcome <?php echo $firstname; ?>!</h1> -->
+</center>
 
 
 <?php
@@ -178,60 +108,31 @@ $predict = "<sup class='badge badge-warning'>Predict</sup>";
 ?>
 
 
-<center>
-  <h1 class="py-3 text-info px-1">View Grades</h1>
-  <!-- <h1 class="py-3 text-info px-1">Welcome <?php echo $firstname; ?>!</h1> -->
-</center>
-
+<select class="form-control col-2 ml-2 pt-1 pb-2 d-inline bg-info text-white mt-3" id="semester" onchange="semester()">
+  <!-- <option value="select_semester">Select Semester</option> -->
+  <option value="1" <?php if (isset($_GET['s_'])) {
+                      if ($_GET['s_'] == "1") {
+                        echo "selected";
+                      }
+                    } ?>>1st Semester</option>
+  <option value="2" <?php if (isset($_GET['s_'])) {
+                      if ($_GET['s_'] == "2") {
+                        echo "selected";
+                      }
+                    } ?>>2nd Semester</option>
+</select>
+&nbsp;
 <?php
-
-// Get the selected value from the query string or set a default value
-$selectedSemester = isset($_GET['s_']) ? $_GET['s_'] : 'select_semester';
-
-// Map for displaying text based on value
-
-$semesterOptions = [
-  'select_semester' => 'Select Semester',
-  '1' => '1st Semester',
-  '2' => '2nd Semester'
-];
-
-$selectedSemesterText = isset($semesterOptions[$selectedSemester]) ? $semesterOptions[$selectedSemester] : 'Select Semester';
+if (isset($_GET['s_'])) {
 ?>
-
-<div class="container-fluid d-inline">
-
-  <!-- Semester Dropdown -->
-  <div class="custom-select-container" id="semester-container">
-    <div class="select-selected"><?php echo $selectedSemesterText; ?></div>
-    <div class="select-items">
-      <?php
-      foreach ($semesterOptions as $value => $text) {
-        echo "<div data-value='$value'>$text</div>";
-      }
-      ?>
-    </div>
-  </div>
-
-
-  &nbsp;
-  <?php
-  if (isset($_GET['s_'])) {
-  ?>
-    <a href="pdf_files_user?s_=<?php echo $_GET["s_"]; ?>&_c=<?php echo $course; ?>&_y=<?php echo $year; ?>&_sn=<?php echo $student_no; ?>&_n=<?php echo $student_name; ?>" target="_blank" class="print">
-      <div>Print</div>
-    </a>
-  <?php
-  } else {
-  ?>
-    <a href="pdf_files_user?s_=<?php echo "1"; ?>&_c=<?php echo $course; ?>&_y=<?php echo $year; ?>&_sn=<?php echo $student_no; ?>&_n=<?php echo $student_name; ?>" target="_blank" class="print">
-      <div>Print</div>
-    </a>
-  <?php
-  }
-  ?>
-
-</div>
+  <a href="pdf_files_user?s_=<?php echo $_GET["s_"]; ?>&_c=<?php echo $course; ?>&_y=<?php echo $year; ?>&_sn=<?php echo $student_no; ?>&_n=<?php echo $student_name; ?>" target="_blank" class="btn btn-warning col-1">Print</a>
+<?php
+} else {
+?>
+  <a href="pdf_files_user?s_=<?php echo "1"; ?>&_c=<?php echo $course; ?>&_y=<?php echo $year; ?>&_sn=<?php echo $student_no; ?>&_n=<?php echo $student_name; ?>" target="_blank" class="btn btn-warning col-1">Print</a>
+<?php
+}
+?>
 
 <div>
   <h6 class="ml-3 d-inline"><b>Course Name</b>: <?php if (isset($_GET['s_'])) {
@@ -1962,32 +1863,32 @@ if ($semester_no == "2") {
 </center>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const selected = document.querySelector('.select-selected');
-    const items = document.querySelector('.select-items');
-    const selectContainer = document.querySelector('.custom-select-container');
+  var select_average = document.getElementById("average_predict");
+  // alert(select_average[1].value);
+  var select_prelim = parseFloat(document.getElementById("get_prelim").innerHTML);
+  var select_midterm = parseFloat(document.getElementById("get_midterm").innerHTML);
+  var select_prefinal = parseFloat(document.getElementById("get_prefinal").innerHTML);
+  var select_prelim_and_midterm = select_prelim + select_midterm;
 
-    // Show the dropdown menu on click
-    selected.addEventListener('click', function() {
-      items.style.display = items.style.display === 'block' ? 'none' : 'block';
-    });
 
-    // Handle item selection
-    items.querySelectorAll('div').forEach(function(item) {
-      item.addEventListener('click', function() {
-        selected.textContent = this.textContent;
-        items.style.display = 'none';
-        window.location.href = `?s_=${this.dataset.value}`;
-      });
-    });
+  var get_prelim_value = document.getElementById("get_prelim");
+  var get_midterm_value = document.getElementById("get_midterm");
+  var get_prefinal_value = document.getElementById("get_prefinal");
+  var get_final_value = document.getElementById("get_final");
 
-    // Close the dropdown if clicked outside
-    document.addEventListener('click', function(event) {
-      if (!selectContainer.contains(event.target)) {
-        items.style.display = 'none';
-      }
-    });
-  });
+  var confirm_prefinal_prediction = document.getElementById("confirm_prefinal_prediction").innerHTML;
+  var confirm_final_prediction = document.getElementById("confirm_final_prediction").innerHTML;
+
+  var average_prediction = (parseFloat(get_prelim_value.innerHTML) + parseFloat(get_midterm_value.innerHTML) + parseFloat(confirm_prefinal_prediction) + parseFloat(confirm_final_prediction)) / 4;
+
+  function semester() {
+
+    var semester = document.getElementById("semester");
+    var selected_semester = semester.options[semester.selectedIndex].value;
+
+    window.location.href = "?s_=" + selected_semester;
+    // alert("hay");
+  }
 </script>
 
 

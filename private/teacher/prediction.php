@@ -138,6 +138,10 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
     width: 180px;
     font-size: 13px;
   }
+
+  .table-no-padding td {
+    vertical-align: middle;
+  }
 </style>
 
 <?php

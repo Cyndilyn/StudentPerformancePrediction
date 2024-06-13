@@ -586,7 +586,7 @@ if (isset($_GET["redir"]) & isset($_GET["_y"]) & isset($_GET["_c"]) & isset($_GE
   }
 
 
-  get_black = document.getElementById("black1");
+  // get_black = document.getElementById("black1");
 
-  get_black.addEventListener("click", relocate);
+  // get_black.addEventListener("click", relocate);
 </script>
