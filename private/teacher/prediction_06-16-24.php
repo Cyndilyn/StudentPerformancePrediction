@@ -9,6 +9,7 @@ if (isset($_SESSION["username"])) {
 
   $session_user = $_SESSION["username"];
 
+  $query_info = mysqli_query($connections, "SELECT * FROM _user_tbl_ WHERE username='$session_user'");
   $my_info = mysqli_fetch_assoc($query_info);
   $account_type = $my_info["account_type"];
 
@@ -260,75 +261,94 @@ $selectedSemesterText = isset($semesterOptions[$selectedSemester]) ? $semesterOp
 
 <div class="container-fluid d-inline">
 
-  <!-- Grading Period Dropdown -->
-  <div class="custom-select-container" id="grading-container">
-    <div class="select-selected"><?php echo $selectedGradingText; ?></div>
-    <div class="select-items">
-      <?php
-      foreach ($gradingOptions as $value => $text) {
-        echo "<div data-value='$value'>$text</div>";
-      }
-      ?>
-    </div>
-  </div>
+  <select class="form-control col-2 ml-2 pt-1 pb-2 d-inline text-white text-white bg-info small-select" id="year" onchange="year()">
+    <option value="select_year">Select Year</option>
 
-  <!-- Year Dropdown -->
-  <div class="custom-select-container select-disabled" id="year-container">
-    <div class="select-selected"><?php echo $selectedYearText; ?></div>
-    <div class="select-items">
-      <div data-value='select_year'>Select Year</div>
+    <?php
+    while ($row_year = mysqli_fetch_assoc($year_qry)) {
+      $year = $row_year["year"];
+    ?>
+      <option value='<?php echo $year; ?>' <?php if (isset($_GET['_y'])) {
+                                              if ($_GET['_y'] == $year) {
+                                                echo "selected";
+                                              }
+                                            } ?>>
       <?php
-      while ($row_year = mysqli_fetch_assoc($year_qry)) {
-        $year = $row_year["year"];
-        echo "<div data-value='$year'>$year</div>";
-      }
+      echo $year;
+    }
       ?>
-    </div>
-  </div>
+      </option>
+  </select>
 
-  <!-- Course Dropdown -->
-  <div class="custom-select-container select-disabled" id="course-container">
-    <div class="select-selected"><?php echo $selectedCourseText; ?></div>
-    <div class="select-items">
-      <?php
-      foreach ($courseOptions as $value => $text) {
-        echo "<div data-value='$value'>$text</div>";
-      }
-      ?>
-    </div>
-  </div>
+  <select class="form-control col-2 ml-2 pt-1 pb-2 d-inline small-select <?php if (!isset($_GET['_y'])) {
+                                                                            echo "bg-secondary";
+                                                                          } else {
+                                                                            if ($_GET['_y'] == "select_year") {
+                                                                              echo "bg-secondary";
+                                                                            } else {
+                                                                              echo "bg-info";
+                                                                            }
+                                                                          } ?> text-white" <?php if (!isset($_GET['_y'])) {
+                                                                                              echo "disabled";
+                                                                                            } else {
+                                                                                              if ($_GET['_y'] == "select_year") {
+                                                                                                echo "disabled";
+                                                                                              }
+                                                                                            } ?> id="course" onchange="course()">
+    <option value="select_course">Select Course</option>
+    <option value="BSIT" <?php if (isset($_GET['_c'])) {
+                            if ($_GET['_c'] == "BSIT") {
+                              echo "selected";
+                            }
+                          } ?>>BSIT</option>
+    <option value="BSCS" <?php if (isset($_GET['_c'])) {
+                            if ($_GET['_c'] == "BSCS") {
+                              echo "selected";
+                            }
+                          } ?>>BSCS</option>
+  </select>
 
-  <!-- Semester Dropdown -->
-  <div class="custom-select-container select-disabled" id="semester-container">
-    <div class="select-selected"><?php echo $selectedSemesterText; ?></div>
-    <div class="select-items">
-      <?php
-      foreach ($semesterOptions as $value => $text) {
-        echo "<div data-value='$value'>$text</div>";
-      }
-      ?>
-    </div>
-  </div>
+  <select class="form-control col-2 ml-2 pt-1 pb-2 d-inline small-select <?php if (!isset($_GET['_c'])) {
+                                                                            echo "bg-secondary";
+                                                                          } else {
+                                                                            if ($_GET['_c'] == "select_semester") {
+                                                                              echo "bg-secondary";
+                                                                            } else {
+                                                                              echo "bg-info";
+                                                                            }
+                                                                          } ?> text-white" <?php if (!isset($_GET['_c'])) {
+                                                                                              echo "disabled";
+                                                                                            } else {
+                                                                                              if ($_GET['_c'] == "select_semester") {
+                                                                                                echo "disabled";
+                                                                                              }
+                                                                                            } ?> id="semester" onchange="semester()">
+    <option value="select_semester">Select Semester</option>
+    <option value="sem1" <?php if (isset($_GET['_s_e_'])) {
+                            if ($_GET['_s_e_'] == "sem1") {
+                              echo "selected";
+                            }
+                          } ?>>1st Semester</option>
+    <option value="sem2" <?php if (isset($_GET['_s_e_'])) {
+                            if ($_GET['_s_e_'] == "sem2") {
+                              echo "selected";
+                            }
+                          } ?>>2nd Semester</option>
+  </select>
 
   &nbsp;
   <?php
   if (isset($_GET['_y']) && !isset($_GET['_c']) && !isset($_GET['_s_e_'])) {
   ?>
-    <a href="pdf_files_prediction.php?_y=<?php echo $_GET["_y"]; ?>" target="_blank" class="print">
-      <div>Print</div>
-    </a>
+    <a href="pdf_files_prediction.php?_y=<?php echo $_GET["_y"]; ?>" target="_blank" class="btn btn-warning col-1">Print</a>
   <?php
   } else if (isset($_GET['_y']) && isset($_GET['_c']) && !isset($_GET['_s_e_'])) {
   ?>
-    <a href="pdf_files_prediction.php?_y=<?php echo $_GET["_y"]; ?>&_c=<?php echo $_GET["_c"]; ?>" target="_blank" class="print">
-      <div>Print</div>
-    </a>
+    <a href="pdf_files_prediction.php?_y=<?php echo $_GET["_y"]; ?>&_c=<?php echo $_GET["_c"]; ?>" target="_blank" class="btn btn-warning col-1">Print</a>
   <?php
   } else if (isset($_GET['_y']) && isset($_GET['_c']) && isset($_GET['_s_e_'])) {
   ?>
-    <a href="pdf_files_prediction.php?_y=<?php echo $_GET["_y"]; ?>&_c=<?php echo $_GET["_c"]; ?>&_s_e_=<?php echo $_GET["_s_e_"]; ?>" target="_blank" class="print">
-      <div>Print</div>
-    </a>
+    <a href="pdf_files_prediction.php?_y=<?php echo $_GET["_y"]; ?>&_c=<?php echo $_GET["_c"]; ?>&_s_e_=<?php echo $_GET["_s_e_"]; ?>" target="_blank" class="btn btn-warning col-1">Print</a>
   <?php
   }
   ?>
@@ -1307,178 +1327,53 @@ if (isset($_GET["id"])) {
 
 
 <script>
-  // var close_button = document.getElementsByClassName("close");
-  // window.onkeyup = function(event) {
-  //   if (event.keyCode == 27) {
-  //     // document.getElementById(boxid).style.visibility="hidden";
-  //     window.location.href = "prediction";
-  //   }
-  // }
+  var close_button = document.getElementsByClassName("close");
+  window.onkeyup = function(event) {
+    if (event.keyCode == 27) {
+      // document.getElementById(boxid).style.visibility="hidden";
+      window.location.href = "prediction";
+    }
+  }
 
-  // function year() {
+  function year() {
 
-  //   var year = document.getElementById("year");
-  //   var selected_year = year.options[year.selectedIndex].value;
+    var year = document.getElementById("year");
+    var selected_year = year.options[year.selectedIndex].value;
 
-  //   window.location.href = "?_y=" + selected_year;
-  //   // alert("hay");
-  // }
+    window.location.href = "?_y=" + selected_year;
+    // alert("hay");
+  }
 
-  // function course() {
+  function course() {
 
-  //   var year = document.getElementById("year");
-  //   var selected_year = year.options[year.selectedIndex].value;
+    var year = document.getElementById("year");
+    var selected_year = year.options[year.selectedIndex].value;
 
-  //   var course = document.getElementById("course");
-  //   var selected_course = course.options[course.selectedIndex].value;
+    var course = document.getElementById("course");
+    var selected_course = course.options[course.selectedIndex].value;
 
-  //   // var selected_semester = f.options[f.selectedIndex].value;
+    // var selected_semester = f.options[f.selectedIndex].value;
 
-  //   window.location.href = "?_y=" + selected_year + "&_c=" + selected_course;
-  //   // alert("hay");
-  // }
+    window.location.href = "?_y=" + selected_year + "&_c=" + selected_course;
+    // alert("hay");
+  }
 
-  // function semester() {
+  function semester() {
 
-  //   var year = document.getElementById("year");
-  //   var selected_year = year.options[year.selectedIndex].value;
+    var year = document.getElementById("year");
+    var selected_year = year.options[year.selectedIndex].value;
 
-  //   var course = document.getElementById("course");
-  //   var selected_course = course.options[course.selectedIndex].value;
+    var course = document.getElementById("course");
+    var selected_course = course.options[course.selectedIndex].value;
 
-  //   var semester = document.getElementById("semester");
-  //   var selected_semester = semester.options[semester.selectedIndex].value;
+    var semester = document.getElementById("semester");
+    var selected_semester = semester.options[semester.selectedIndex].value;
 
-  //   window.location.href = "?_y=" + selected_year + "&_c=" + selected_course + /* "&_s="+selected_subject+ */ "&_s_e_=" + selected_semester;
-  //   // alert("hay");
-  // }
+    window.location.href = "?_y=" + selected_year + "&_c=" + selected_course + /* "&_s="+selected_subject+ */ "&_s_e_=" + selected_semester;
+    // alert("hay");
+  }
 
   document.addEventListener('DOMContentLoaded', (event) => {
-
-    const containers = [{
-        id: 'grading-container',
-        param: 'redir'
-      },
-      {
-        id: 'year-container',
-        param: '_y'
-      },
-      {
-        id: 'course-container',
-        param: '_c'
-      },
-      {
-        id: 'semester-container',
-        param: '_s_e_'
-      }
-    ];
-
-    containers.forEach((container, index) => {
-      const containerElem = document.getElementById(container.id);
-      const selectedElem = containerElem.querySelector('.select-selected');
-      const itemsElem = containerElem.querySelector('.select-items');
-
-      // Function to toggle dropdown visibility
-      function toggleDropdown() {
-        if (containerElem.classList.contains('select-disabled')) {
-          return;
-        }
-        itemsElem.style.display = itemsElem.style.display === 'block' ? 'none' : 'block';
-      }
-
-      // Show the dropdown menu on click
-      selectedElem.addEventListener('click', toggleDropdown);
-
-      // Handle item selection
-      itemsElem.querySelectorAll('div').forEach(item => {
-        item.addEventListener('click', function() {
-          if (containerElem.classList.contains('select-disabled')) {
-            return;
-          }
-          selectedElem.textContent = this.textContent;
-          itemsElem.style.display = 'none';
-
-          // Collect all selected values
-          const selectedValues = {};
-          containers.forEach((cont, idx) => {
-            if (idx <= index) {
-              const contElem = document.getElementById(cont.id);
-              const selText = contElem.querySelector('.select-selected').textContent.trim();
-              const valueElem = Array.from(contElem.querySelector('.select-items').querySelectorAll('div')).find(el => el.textContent.trim() === selText);
-              selectedValues[cont.param] = valueElem ? valueElem.dataset.value : null;
-            }
-          });
-
-          // Enable the next container if applicable
-          if (index < containers.length - 1) {
-            const nextContainer = document.getElementById(containers[index + 1].id);
-            if (this.dataset.value !== `select_${containers[index].param.split('_').join('')}`) {
-              nextContainer.classList.remove('select-disabled');
-            } else {
-              for (let i = index + 1; i < containers.length; i++) {
-                document.getElementById(containers[i].id).classList.add('select-disabled');
-              }
-            }
-          }
-
-          // Redirect with selected values
-          const queryString = Object.entries(selectedValues).map(([key, value]) => `${key}=${value}`).join('&');
-          window.location.href = `?${queryString}`;
-        });
-      });
-
-      // Close the dropdown if clicked outside
-      document.addEventListener('click', function(event) {
-        if (!containerElem.contains(event.target)) {
-          itemsElem.style.display = 'none';
-        }
-      });
-    });
-
-
-    // Initial enablement based on URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-
-    // Get the value associated with the "redir" parameter
-    const redirParamCheckValue = urlParams.has('redir');
-    const redirParamGetValue = urlParams.get('redir');
-
-    // Get the value associated with the "redir" parameter
-    const _yParamCheckValue = urlParams.has('_y');
-    const _yParamGetValue = urlParams.get('_y');
-
-    // Get the value associated with the "redir" parameter
-    const _cParamCheckValue = urlParams.has('_c');
-    const _cParamGetValue = urlParams.get('_c');
-    console.log("Check: " + _cParamCheckValue);
-    console.log("Value: " + _cParamGetValue);
-
-    if (redirParamCheckValue) {
-      if (redirParamGetValue != "select_grading") {
-        // Enable the year container here
-        const yearContainer = document.getElementById('year-container');
-        yearContainer.classList.remove('select-disabled');
-      }
-
-    }
-
-    if (_yParamCheckValue) {
-      if (_yParamGetValue != "select_year") {
-        // Enable the year container here
-        const courseContainer = document.getElementById('course-container');
-        courseContainer.classList.remove('select-disabled');
-      }
-
-    }
-
-    if (_cParamCheckValue) {
-      if (_cParamGetValue != "select_course") {
-        // Enable the year container here
-        const semesterContainer = document.getElementById('semester-container');
-        semesterContainer.classList.remove('select-disabled');
-      }
-
-    }
 
     semster = document.getElementById('get_semester').value;
     // Get all rows in the table
