@@ -1,3 +1,24 @@
+<style>
+  .table-no-padding td,
+  .table-no-padding th {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+  }
+
+  th {
+    font-weight: 500;
+  }
+
+  .new-color {
+    background-color: #347B98 !important;
+    color: #fff;
+  }
+
+  .new-color:hover {
+    background-color: #092834 !important;
+    color: #fff;
+  }
+</style>
 <?php
 
 
@@ -72,85 +93,74 @@ if (isset($_GET["_s_e_"])) {
 
 ?>
 
-<style>
-  .table-no-padding td,
-  .table-no-padding th {
-    padding-top: 5px !important;
-    padding-bottom: 5px !important;
-  }
-
-  th {
-    font-weight: 500;
-  }
-</style>
 <div class="table-responsive table_table mt-3 col-12">
   <table border="1" class="table table-hover table-no-padding">
     <thead>
       <tr>
         <th class="px-3 col-2" colspan="2"></th>
-        <th class="text-center " style="background-color: #82abfc;" colspan="17">Midterm</th>
+        <th class="text-center " style="background-color:#347B98; color: white;" colspan="17">Midterm</th>
       </tr><!-- Midterm Here -->
 
       <tr>
         <th class="px-3">Student&nbsp;ID</th>
         <th class="px-3 col-2">Student&nbsp;Name</th>
         <!-- <th class="px-5 text-center " style="background-color: #82abfc;" colspan="12">Formative Assessment</th> -->
-        <th class="px-5 text-center " style="background-color: #82abfc;" colspan="5">Output</th>
-        <th class="px-5 text-center " style="background-color: #82abfc;" colspan="5">Performance</th>
-        <th class="px-5 text-center " style="background-color: #82abfc;" colspan="3">Major&nbsp;Exam</th>
-        <th class="px-2 text-center " style="background-color: #82abfc;">2nd&nbsp;Quarter</th>
-        <th class="px-2 text-center " style="background-color: #82abfc;">Midterm&nbsp;Grade</th>
-        <th class="px-2 text-center " style="background-color: #82abfc;">Equivalent</th>
-        <th class="px-2 text-center " style="background-color: #82abfc;">Remarks</th>
+        <th class="px-5 text-center " style="background-color:#347B98; color: white;" colspan="5">Output</th>
+        <th class="px-5 text-center " style="background-color:#347B98; color: white;" colspan="5">Performance</th>
+        <th class="px-5 text-center " style="background-color:#347B98; color: white;" colspan="3">Major&nbsp;Exam</th>
+        <th class="px-2 text-center " style="background-color:#347B98; color: white;">2nd&nbsp;Quarter</th>
+        <th class="px-2 text-center " style="background-color:#347B98; color: white;">Midterm&nbsp;Grade</th>
+        <th class="px-2 text-center " style="background-color:#347B98; color: white;">Equivalent</th>
+        <th class="px-2 text-center " style="background-color:#347B98; color: white;">Remarks</th>
       </tr><!-- Midterm Here -->
 
       <tr>
         <th class="px-3"></th>
         <th class="px-3">Highest&nbsp;Possible&nbsp;Score</th>
         <!-- <th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">100</th><th class="" style="background-color: #82abfc;">60</th> -->
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>20</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>20</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>40</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>60</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>0.40</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>20</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>20</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>40</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>60</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>0.40</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>30</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>60</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>0.20</center>
         </th>
-        <th class="" style="background-color: #82abfc;"></th>
-        <th class="" style="background-color: #82abfc;"></th>
-        <th class="" style="background-color: #82abfc;"></th>
-        <th class="" style="background-color: #82abfc;"></th>
+        <th class="" style="background-color:#347B98; color: white;"></th>
+        <th class="" style="background-color:#347B98; color: white;"></th>
+        <th class="" style="background-color:#347B98; color: white;"></th>
+        <th class="" style="background-color:#347B98; color: white;"></th>
       </tr><!-- Midterm Here -->
     </thead>
 
@@ -450,11 +460,11 @@ if (isset($_GET["redir"]) & isset($_GET["_y"]) & isset($_GET["_c"]) & isset($_GE
 
   <div class="mt-5">
     <center>
-      <a href="?redir=midterm&_y=<?php echo $year; ?>&_c=<?php echo $course; ?>&_s_e_=<?php echo $semester; ?>&in_=output1" class="btn btn-primary col-sm-2 mb-3 ml-3">Output 1 Grade</a>
-      <a href="?redir=midterm&_y=<?php echo $year; ?>&_c=<?php echo $course; ?>&_s_e_=<?php echo $semester; ?>&in_=output2" class="btn btn-primary col-sm-2 mb-3 ml-3">Output 2 Grade</a>
-      <a href="?redir=midterm&_y=<?php echo $year; ?>&_c=<?php echo $course; ?>&_s_e_=<?php echo $semester; ?>&in_=performance1" class="btn btn-primary col-sm-2 mb-3 ml-3">Performance 1 Grade</a>
-      <a href="?redir=midterm&_y=<?php echo $year; ?>&_c=<?php echo $course; ?>&_s_e_=<?php echo $semester; ?>&in_=performance2" class="btn btn-primary col-sm-2 mb-3 ml-3">Performance 2 Grade</a>
-      <a href="?redir=midterm&_y=<?php echo $year; ?>&_c=<?php echo $course; ?>&_s_e_=<?php echo $semester; ?>&in_=written_test" class="btn btn-primary col-sm-2 mb-3 ml-3">Major Exam Grade</a>
+      <a href="?redir=midterm&_y=<?php echo $year; ?>&_c=<?php echo $course; ?>&_s_e_=<?php echo $semester; ?>&in_=output1" class="btn col-sm-2 mb-3 ml-3 new-color">Output 1 Grade</a>
+      <a href="?redir=midterm&_y=<?php echo $year; ?>&_c=<?php echo $course; ?>&_s_e_=<?php echo $semester; ?>&in_=output2" class="btn col-sm-2 mb-3 ml-3 new-color">Output 2 Grade</a>
+      <a href="?redir=midterm&_y=<?php echo $year; ?>&_c=<?php echo $course; ?>&_s_e_=<?php echo $semester; ?>&in_=performance1" class="btn col-sm-2 mb-3 ml-3 new-color">Performance 1 Grade</a>
+      <a href="?redir=midterm&_y=<?php echo $year; ?>&_c=<?php echo $course; ?>&_s_e_=<?php echo $semester; ?>&in_=performance2" class="btn col-sm-2 mb-3 ml-3 new-color">Performance 2 Grade</a>
+      <a href="?redir=midterm&_y=<?php echo $year; ?>&_c=<?php echo $course; ?>&_s_e_=<?php echo $semester; ?>&in_=written_test" class="btn col-sm-2 mb-3 ml-3 new-color">Major Exam Grade</a>
     </center>
   </div>
 
@@ -532,16 +542,16 @@ if (isset($_GET["redir"]) & isset($_GET["_y"]) & isset($_GET["_c"]) & isset($_GE
 
 
 <input type="hidden" value="<?php if (isset($_GET["redir"])) {
-                              echo "prelim";
+                              echo $_GET["redir"];
                             } ?>" id="grade_period">
 <input type="hidden" value="<?php if (isset($_GET["_y"])) {
-                              echo "2011";
+                              echo $_GET["_y"];
                             } ?>" id="year">
 <input type="hidden" value="<?php if (isset($_GET["_c"])) {
-                              echo "BSIT";
+                              echo $_GET["_c"];
                             } ?>" id="course">
 <input type="hidden" value="<?php if (isset($_GET["_s_e_"])) {
-                              echo "sem1";
+                              echo $_GET["_s_e_"];
                             } ?>" id="semester">
 
 <script>
@@ -579,7 +589,7 @@ if (isset($_GET["redir"]) & isset($_GET["_y"]) & isset($_GET["_c"]) & isset($_GE
   }
 
 
-  // get_black = document.getElementById("black1");
+  get_black = document.getElementById("black1");
 
-  // get_black.addEventListener("click", relocate);
+  get_black.addEventListener("click", relocate);
 </script>

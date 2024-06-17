@@ -26,10 +26,6 @@ if (isset($_SESSION["username"])) {
 ?>
 
 
-<center>
-	<h1 class="py-3 text-info px-1">Student Performance Chart</h1>
-</center>
-
 
 <style>
 	canvas {
@@ -37,6 +33,10 @@ if (isset($_SESSION["username"])) {
 		-moz-user-select: none;
 		-webkit-user-select: none;
 		-ms-user-select: none;
+	}
+
+	body {
+		font-size: .8em;
 	}
 
 	.chart_active {
@@ -95,7 +95,7 @@ if (isset($_SESSION["username"])) {
 
 	/* Custom select displayed element */
 	.select-selected {
-		background-color: #17a2b8;
+		background-color: #347B98 !important;
 		color: white;
 		padding: 5px 10px;
 		font-size: 14px;
@@ -107,7 +107,7 @@ if (isset($_SESSION["username"])) {
 	.select-items {
 		position: absolute;
 		background-color: #f8f9fa;
-		border: 1px solid #ccc;
+		border: 1px solid #347B98 !important;
 		z-index: 99;
 		width: 100%;
 		top: 35px;
@@ -124,7 +124,7 @@ if (isset($_SESSION["username"])) {
 	/* Highlight selected item */
 	.select-items div:hover,
 	.same-as-selected {
-		background-color: #17a2b8;
+		background-color: #347B98 !important;
 		color: white;
 	}
 
@@ -137,6 +137,11 @@ if (isset($_SESSION["username"])) {
 <?php
 include("../bins/teacher_nav.php");
 ?>
+
+
+<center>
+	<h1 class="py-3 text-info px-1">Student Performance Chart</h1>
+</center>
 
 <?php
 

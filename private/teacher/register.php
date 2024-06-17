@@ -33,15 +33,21 @@ if (isset($_SESSION["username"])) {
 ?>
 
 
-<center>
-  <h1 class="py-3 text-info px-1">Register</h1>
-</center>
 
 
 <style>
+  body {
+    font-size: .8em;
+  }
+
   .register_active {
     border: 1.5px solid white;
     border-radius: 6px;
+  }
+
+  .new-color {
+    background-color: #347B98 !important;
+    color: #fff;
   }
 </style>
 
@@ -49,15 +55,19 @@ if (isset($_SESSION["username"])) {
 include("../bins/teacher_nav.php");
 ?>
 
+
 <center>
 
+  <!-- <h1 class="py-3 text-info px-1">Register</h1> -->
 
+
+  <br>
   <br>
   <div class="container w-50">
 
 
     <div class="card">
-      <div class="card-header bg-primary text-light">
+      <div class="card-header new-color">
         <h3>Register Student</h3>
       </div>
       <div class="card-body">
@@ -304,42 +314,42 @@ VALUES ('$student_no','$fullname','$year','$course','00','00','00','00','00','00
             <!-- <p>dash sa input butangan dahil sa validation</p> -->
             <div class="form-group">
               <tr>
-                <td class="label"><b><label for="student_no"><span style="color:red;">* </span>Student ID:</label></b></td>
+                <td class="label"><b><label for="student_no">Student ID:</label></b></td>
                 <td colspan="3"><input class="form-control txt_input" type="text" value="<?php echo $student_no; ?>" name="student_no" class="warningColor" id="student_no" autocomplete="off" disabled></td>
               </tr>
             </div>
 
             <div class="form-group">
               <tr>
-                <td class="label"><b><label for="lastname"><span style="color:red;">* </span>Last Name:</label></b></td>
+                <td class="label"><b><label for="lastname">Last Name:<span style="color:red;"> *</span></label></b></td>
                 <td colspan="3"><input class="form-control txt_input" type="text" value="<?php echo $lastname; ?>" name="lastname" class="warningColor" id="lastname" placeholder="Last Name" autocomplete="off" autofocus required></td>
               </tr>
             </div>
 
             <div class="form-group">
               <tr>
-                <td class="label"><b><label for="firstname"><span style="color:red;">* </span>First Name:</label></b></td>
+                <td class="label"><b><label for="firstname">First Name:<span style="color:red;"> *</span></label></b></td>
                 <td colspan="3"><input class="form-control txt_input" type="text" value="<?php echo $firstname; ?>" name="firstname" class="err" id="firstname" placeholder="First Name" autocomplete="off" required></td>
               </tr>
             </div>
 
             <div class="form-group">
               <tr>
-                <td class="label"><b><label for="middlename"><span style="color:red;">* </span>Middle Name:</label></b></td>
+                <td class="label"><b><label for="middlename">Middle Name:<span style="color:red;"> *</span></label></b></td>
                 <td colspan="3"><input class="form-control txt_input" type="text" value="<?php echo $middlename; ?>" name="middlename" class="err" id="middlename" placeholder="Middle Name" autocomplete="off" required></td>
               </tr>
             </div>
 
             <div class="form-group">
               <tr>
-                <td class="label"><b><label for="course"><span style="color:red;">* </span>Course:</label></b></td>
+                <td class="label"><b><label for="course">Course:<span style="color:red;"> *</span></label></b></td>
                 <td colspan="3"><input class="form-control txt_input" type="text" value="<?php echo $course; ?>" name="course" class="err" id="course" placeholder="Course" autocomplete="off" required></td>
               </tr>
             </div>
 
             <div class="form-group">
               <tr>
-                <td class="label"><b><label for="year"><span style="color:red;">* </span>Year Graduated:</label></b></td>
+                <td class="label"><b><label for="year">Year Graduated:<span style="color:red;"> *</span></label></b></td>
                 <td colspan="3"><input class="form-control txt_input" type="text" value="<?php echo $year; ?>" name="year" class="err" id="year" placeholder="Year" autocomplete="off" maxlength="4" onkeypress='return isNumberKey(event)' required></td>
               </tr>
             </div>
@@ -347,21 +357,21 @@ VALUES ('$student_no','$fullname','$year','$course','00','00','00','00','00','00
 
             <div class="form-group">
               <tr>
-                <td class="label"><b><label for="username"><span style="color:red;">* </span>User Name:</label></b></td>
+                <td class="label"><b><label for="username">User Name:<span style="color:red;"> *</span></label></b></td>
                 <td colspan="3"><input class="form-control txt_input" type="text" value="<?php echo $username; ?>" name="uname" id="username" autocomplete="off" placeholder="Username" required></td>
               </tr>
             </div>
 
             <div class="form-group">
               <tr>
-                <td class="label"><b><label for="initial_password"><span style="color:red;">* </span>Password:</label></b></td>
+                <td class="label"><b><label for="initial_password">Password:<span style="color:red;"> *</span></label></b></td>
                 <td colspan="3"><input class="form-control txt_input" type="password" value="<?php echo $password; ?>" name="initial_password" id="initial_password" autocomplete="off" placeholder="Password" required></td>
               </tr>
             </div>
 
             <div class="form-group">
               <tr>
-                <td class="label"><b><label for="confirm_password"><span style="color:red;">* </span>Confirm Password:</label></b></td>
+                <td class="label"><b><label for="confirm_password">Confirm Password:<span style="color:red;"> *</span></label></b></td>
                 <td colspan="3"><input class="form-control txt_input" type="password" value="<?php echo $confirm_password; ?>" name="confirm_password" id="confirm_password" autocomplete="off" placeholder="Confirm Password" required></td>
               </tr>
             </div>
@@ -379,7 +389,7 @@ VALUES ('$student_no','$fullname','$year','$course','00','00','00','00','00','00
           </table>
         </form>
       </div>
-      <div class="card-footer bg-primary text-light">
+      <div class="card-footer new-color">
         <input type="button" class="btn btn-light invisible" value="Register">
       </div>
     </div>

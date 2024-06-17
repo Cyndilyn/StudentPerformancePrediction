@@ -28,6 +28,10 @@ if (isset($_SESSION["username"])) {
 
 
 <style>
+  body {
+    font-size: .8em;
+  }
+
   .home_active {
     border: 1.5px solid white;
     border-radius: 6px;

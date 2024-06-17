@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-info navbar-dark">
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #347B98;">
   <!-- <a class="navbar-brand" href="#">Navbar</a> -->
   <!-- <div class="input-group form-inline col-sm-4">
 <input class="form-control" type="text" placeholder="Search...">

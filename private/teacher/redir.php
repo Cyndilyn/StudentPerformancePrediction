@@ -1,3 +1,14 @@
+<style>
+  #grade {
+    border: none;
+    border-bottom: 1px solid gray;
+  }
+
+  .main-bg-color {
+    background-color: #347B98 !important;
+    color: #fff;
+  }
+</style>
 <?php
 
 function get_url_data()
@@ -49,7 +60,7 @@ if ($input_data == "output1") {
 <div class="black p-5 fixed-top">
 
   <div class="card col-sm-5 mx-auto p-3">
-    <button type="button" class="close ml-auto bg-info rounded-circle px-1" id="black1">&times;</button>
+    <button type="button" class="close ml-auto rounded-circle px-1 main-bg-color" id="black1">&times;</button>
     <br>
     <input type="hidden" id="column_data" value="<?php echo $column_data; ?>">
     <input type="hidden" id="_grading_period" value="<?php echo $grading_period; ?>">
@@ -59,7 +70,7 @@ if ($input_data == "output1") {
     <!-- <h6>E sort lang du array ag find last array then check if it is greater than 20 or 70.</h6> -->
     <h3 class="position-fixed "><?php echo $card_title; ?></h3>
     <p></p>
-    <div class="card-header bg-info">
+    <div class="card-header main-bg-color">
       <font color="white"> Input Grade </font>
     </div>
 
@@ -516,7 +527,7 @@ if ($input_data == "output1") {
 
     </div>
 
-    <div class="card-footer bg-info">
+    <div class="card-footer main-bg-color">
 
       <input type="submit" class="btn btn-warning float-right" value="Submit Grade" name="input_grade">
       </form>
@@ -525,12 +536,6 @@ if ($input_data == "output1") {
 </div>
 <!-- </center> -->
 
-<style>
-  #grade {
-    border: none;
-    border-bottom: 1px solid gray;
-  }
-</style>
 
 
 <script>

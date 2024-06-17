@@ -27,9 +27,6 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
 
 ?>
 
-<center>
-  <h1 class="py-3 text-info px-1">Student Performance Prediction</h1>
-</center>
 
 
 <style>
@@ -55,7 +52,7 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
 
 
   .table-hover tbody tr:hover {
-    background: #e6e6e6;
+    background: #67AFCB;
     cursor: pointer;
   }
 
@@ -85,9 +82,10 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
     color: #fff;
   }
 
+  /* 
   td:hover .remarks {
     color: #fff;
-  }
+  } */
 
   table tbody {
     display: block;
@@ -138,60 +136,190 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
     width: 180px;
     font-size: 13px;
   }
+
+  .table-no-padding td {
+    vertical-align: middle;
+  }
+
+  /* Custom select container */
+  .custom-select-container {
+    position: relative;
+    display: inline-block;
+    width: 160px;
+  }
+
+  /* Custom select container */
+  .print {
+    position: relative;
+    display: inline-block;
+    background-color: #FFC107;
+    /* background-color: #E0A800; */
+    text-align: center;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 90px;
+  }
+
+  .print {
+    /* width: 100%; */
+    text-decoration: none;
+    color: black;
+  }
+
+  .print:hover {
+    background-color: #E0A800;
+    text-decoration: none;
+    color: white;
+  }
+
+  /* Custom select displayed element */
+  .select-selected {
+    background-color: #347B98;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+
+  /* Custom select dropdown */
+  .select-items {
+    position: absolute;
+    background-color: #f8f9fa;
+    border: 1px solid #347B98;
+    z-index: 99;
+    width: 100%;
+    top: 35px;
+    display: none;
+  }
+
+  /* Custom select items */
+  .select-items div {
+    color: #343a40;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+
+  /* Highlight selected item */
+  .select-items div:hover,
+  .same-as-selected {
+    background-color: #347B98;
+    color: white;
+  }
+
+  .select-disabled .select-selected {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .text-title-color {
+    color: #347B98 !important;
+  }
 </style>
 
 <?php
+
 include("../bins/admin_nav.php");
+
+// Get the selected value from the query string or set a default value
+$selectedGrading = isset($_GET['redir']) ? $_GET['redir'] : 'select_grading';
+$selectedYear = isset($_GET['_y']) ? $_GET['_y'] : 'select_year';
+$selectedCourse = isset($_GET['_c']) ? $_GET['_c'] : 'select_course';
+$selectedSemester = isset($_GET['_s_e_']) ? $_GET['_s_e_'] : 'select_semester';
+
+// Map for displaying text based on value
+$gradingOptions = [
+  'select_grading' => 'Select Grading Period',
+  'prelim' => 'Prelim',
+  'midterm' => 'Midterm',
+  'prefinal' => 'Prefinal',
+  'final' => 'Final'
+];
+
+$courseOptions = [
+  'select_course' => 'Select Course',
+  'BSIT' => 'BSIT',
+  'BSCS' => 'BSCS'
+];
+$semesterOptions = [
+  'select_semester' => 'Select Semester',
+  'sem1' => '1st Semester',
+  'sem2' => '2nd Semester'
+];
+
+$selectedGradingText = isset($gradingOptions[$selectedGrading]) ? $gradingOptions[$selectedGrading] : 'Select Grading Period';
+$selectedYearText = isset($selectedYear) && $selectedYear != 'select_year' ? $selectedYear : 'Select Year';
+$selectedCourseText = isset($courseOptions[$selectedCourse]) ? $courseOptions[$selectedCourse] : 'Select Course';
+$selectedSemesterText = isset($semesterOptions[$selectedSemester]) ? $semesterOptions[$selectedSemester] : 'Select Semester';
 ?>
+
+<br>
+
+<center>
+  <h1 class="py-3 text-info px-1 text-title-color">Student Performance Prediction</h1>
+</center>
+
 <br>
 
 <div class="container-fluid d-inline py-5">
 
-  <select class="form-control col-2 ml-2 pt-1 pb-2 d-inline text-white text-white bg-info small-select" id="year" onchange="year()">
+  <!-- <select class="form-control col-2 ml-2 pt-1 pb-2 d-inline text-white text-white bg-info small-select" id="year" onchange="year()">
     <option value="select_year">Select Year</option>
 
     <?php
-    while ($row_year = mysqli_fetch_assoc($year_qry)) {
-      $year = $row_year["year"];
+    // while ($row_year = mysqli_fetch_assoc($year_qry)) {
+    //   $year = $row_year["year"];
     ?>
-      <option value='<?php echo $year; ?>' <?php if (isset($_GET['_y'])) {
-                                              if ($_GET['_y'] == $year) {
-                                                echo "selected";
-                                              }
-                                            } ?>>
+      <option value='<?php echo $year; ?>' <?php
+                                            //  if (isset($_GET['_y'])) {
+                                            //                                         if ($_GET['_y'] == $year) {
+                                            //                                           echo "selected";
+                                            //                                         }
+                                            //                                       } 
+                                            ?>>
       <?php
-      echo $year;
-    }
+      //   echo $year;
+      // }
       ?>
       </option>
   </select>
 
-  <select class="form-control col-2 ml-2 pt-1 pb-2 d-inline small-select <?php if (!isset($_GET['_y'])) {
-                                                                            echo "bg-secondary";
-                                                                          } else {
-                                                                            if ($_GET['_y'] == "select_year") {
-                                                                              echo "bg-secondary";
-                                                                            } else {
-                                                                              echo "bg-info";
-                                                                            }
-                                                                          } ?> text-white" <?php if (!isset($_GET['_y'])) {
-                                                                                              echo "disabled";
-                                                                                            } else {
-                                                                                              if ($_GET['_y'] == "select_year") {
-                                                                                                echo "disabled";
-                                                                                              }
-                                                                                            } ?> id="course" onchange="course()">
+  <select class="form-control col-2 ml-2 pt-1 pb-2 d-inline small-select <?php
+                                                                          //  if (!isset($_GET['_y'])) {
+                                                                          //                                                                           echo "bg-secondary";
+                                                                          //                                                                         } else {
+                                                                          //                                                                           if ($_GET['_y'] == "select_year") {
+                                                                          //                                                                             echo "bg-secondary";
+                                                                          //                                                                           } else {
+                                                                          //                                                                             echo "bg-info";
+                                                                          //                                                                           }
+                                                                          //                                                                         } 
+                                                                          ?> text-white" <?php
+                                                                                          //  if (!isset($_GET['_y'])) {
+                                                                                          //                     echo "disabled";
+                                                                                          //                   } else {
+                                                                                          //                     if ($_GET['_y'] == "select_year") {
+                                                                                          //                       echo "disabled";
+                                                                                          //                     }
+                                                                                          //                   } 
+                                                                                          ?> id="course" onchange="course()">
     <option value="select_course">Select Course</option>
-    <option value="BSIT" <?php if (isset($_GET['_c'])) {
-                            if ($_GET['_c'] == "BSIT") {
-                              echo "selected";
-                            }
-                          } ?>>BSIT</option>
-    <option value="BSCS" <?php if (isset($_GET['_c'])) {
-                            if ($_GET['_c'] == "BSCS") {
-                              echo "selected";
-                            }
-                          } ?>>BSCS</option>
+    <option value="BSIT" <?php
+                          //  if (isset($_GET['_c'])) {
+                          //                         if ($_GET['_c'] == "BSIT") {
+                          //                           echo "selected";
+                          //                         }
+                          //                       } 
+                          ?>>BSIT</option>
+    <option value="BSCS" <?php
+                          //  if (isset($_GET['_c'])) {
+                          //                         if ($_GET['_c'] == "BSCS") {
+                          //                           echo "selected";
+                          //                         }
+                          //                       } 
+                          ?>>BSCS</option>
   </select>
 
   <select class="form-control col-2 ml-2 pt-1 pb-2 d-inline small-select <?php if (!isset($_GET['_c'])) {
@@ -210,31 +338,92 @@ include("../bins/admin_nav.php");
                                                                                               }
                                                                                             } ?> id="semester" onchange="semester()">
     <option value="select_semester">Select Semester</option>
-    <option value="sem1" <?php if (isset($_GET['_s_e_'])) {
-                            if ($_GET['_s_e_'] == "sem1") {
-                              echo "selected";
-                            }
-                          } ?>>1st Semester</option>
-    <option value="sem2" <?php if (isset($_GET['_s_e_'])) {
-                            if ($_GET['_s_e_'] == "sem2") {
-                              echo "selected";
-                            }
-                          } ?>>2nd Semester</option>
-  </select>
+    <option value="sem1" <?php
+                          //  if (isset($_GET['_s_e_'])) {
+                          //                         if ($_GET['_s_e_'] == "sem1") {
+                          //                           echo "selected";
+                          //                         }
+                          //                       } 
+                          ?>>1st Semester</option>
+    <option value="sem2" <?php
+                          //  if (isset($_GET['_s_e_'])) {
+                          //                         if ($_GET['_s_e_'] == "sem2") {
+                          //                           echo "selected";
+                          //                         }
+                          //                       } 
+                          ?>>2nd Semester</option>
+  </select> -->
+
+
+  <!-- Grading Period Dropdown -->
+  <div class="custom-select-container" id="grading-container">
+    <div class="select-selected"><?php echo $selectedGradingText; ?></div>
+    <div class="select-items">
+      <?php
+      foreach ($gradingOptions as $value => $text) {
+        echo "<div data-value='$value'>$text</div>";
+      }
+      ?>
+    </div>
+  </div>
+
+  <!-- Year Dropdown -->
+  <div class="custom-select-container select-disabled" id="year-container">
+    <div class="select-selected"><?php echo $selectedYearText; ?></div>
+    <div class="select-items">
+      <div data-value='select_year'>Select Year</div>
+      <?php
+      while ($row_year = mysqli_fetch_assoc($year_qry)) {
+        $year = $row_year["year"];
+        echo "<div data-value='$year'>$year</div>";
+      }
+      ?>
+    </div>
+  </div>
+
+  <!-- Course Dropdown -->
+  <div class="custom-select-container select-disabled" id="course-container">
+    <div class="select-selected"><?php echo $selectedCourseText; ?></div>
+    <div class="select-items">
+      <?php
+      foreach ($courseOptions as $value => $text) {
+        echo "<div data-value='$value'>$text</div>";
+      }
+      ?>
+    </div>
+  </div>
+
+  <!-- Semester Dropdown -->
+  <div class="custom-select-container select-disabled" id="semester-container">
+    <div class="select-selected"><?php echo $selectedSemesterText; ?></div>
+    <div class="select-items">
+      <?php
+      foreach ($semesterOptions as $value => $text) {
+        echo "<div data-value='$value'>$text</div>";
+      }
+      ?>
+    </div>
+  </div>
 
   &nbsp;
   <?php
   if (isset($_GET['_y']) && !isset($_GET['_c']) && !isset($_GET['_s_e_'])) {
   ?>
-    <a href="pdf_files_prediction?_y=<?php echo $_GET["_y"]; ?>" target="_blank" class="btn btn-warning col-1">Print</a>
+    <a href="pdf_files_prediction?_y=<?php echo $_GET["_y"]; ?>" target="_blank" class="print">
+      <div>Print</div>
+    </a>
   <?php
   } else if (isset($_GET['_y']) && isset($_GET['_c']) && !isset($_GET['_s_e_'])) {
   ?>
-    <a href="pdf_files_prediction?_y=<?php echo $_GET["_y"]; ?>&_c=<?php echo $_GET["_c"]; ?>" target="_blank" class="btn btn-warning col-1">Print</a>
+    <a href="pdf_files_prediction?_y=<?php echo $_GET["_y"]; ?>&_c=<?php echo $_GET["_c"]; ?>" target="_blank" class="print">
+      <div>Print</div>
+    </a>
   <?php
   } else if (isset($_GET['_y']) && isset($_GET['_c']) && isset($_GET['_s_e_'])) {
   ?>
-    <a href="pdf_files_prediction?_y=<?php echo $_GET["_y"]; ?>&_c=<?php echo $_GET["_c"]; ?>&_s_e_=<?php echo $_GET["_s_e_"]; ?>" target="_blank" class="btn btn-warning col-1">Print</a>
+    <a href="pdf_files_prediction?_y=<?php echo $_GET["_y"]; ?>&_c=<?php echo $_GET["_c"]; ?>&_s_e_=<?php echo $_GET["_s_e_"]; ?>" target="_blank" class="print">
+      <div>Print</div>
+    </a>
   <?php
   }
   ?>
@@ -282,19 +471,19 @@ include("../bins/admin_nav.php");
   <table border="1" class="table table-hover mt-3 col-sm table-no-padding">
     <thead>
       <tr>
-        <th class="px-3 text-center bg-info text-white" colspan="9">Student Grade</th>
+        <th class="px-3 text-center" style="background-color:#347B98; color: white;" colspan="9">Student Grade</th>
       </tr><!-- Preliminary Here -->
 
       <tr class="text-center">
         <th class="px-3">Student ID</th>
         <th class="px-3">Student Name</th>
-        <th class="px-3" style="background-color:#B1FBC4; color:#000;">Prelim</th>
-        <th class="px-3" style="background-color:#cdddfe; color:#000;">Midterm</th>
-        <th class="px-3" style="background-color:#ffb3b3; color:#000;" id="prefinal">Prefinal</th>
-        <th class="px-3" style="background-color:#ffffcc; color:#000;" id="final">Final</th>
-        <th class="px-3 bg-secondary text-white" id="average">Average</th>
-        <th class="px-3 bg-secondary text-white" id="average">Equivalent</th>
-        <th class="px-3 bg-secondary text-white" id="remarks">Remarks</th>
+        <th class="px-3" style="background-color:#347B98; color: white;">Prelim</th>
+        <th class="px-3" style="background-color:#347B98; color: white;">Midterm</th>
+        <th class="px-3" style="background-color:#347B98; color: white;" id="prefinal">Prefinal</th>
+        <th class="px-3" style="background-color:#347B98; color: white;" id="final">Final</th>
+        <th class="px-3" style="background-color:#347B98; color: white;" id="average">Average</th>
+        <th class="px-3" style="background-color:#347B98; color: white;" id="average">Equivalent</th>
+        <th class="px-3" style="background-color:#347B98; color: white;" id="remarks">Remarks</th>
       </tr>
 
     </thead>
@@ -1267,6 +1456,131 @@ if (isset($_GET["id"])) {
   }
 
   document.addEventListener('DOMContentLoaded', (event) => {
+
+    const containers = [{
+        id: 'grading-container',
+        param: 'redir'
+      },
+      {
+        id: 'year-container',
+        param: '_y'
+      },
+      {
+        id: 'course-container',
+        param: '_c'
+      },
+      {
+        id: 'semester-container',
+        param: '_s_e_'
+      }
+    ];
+
+    containers.forEach((container, index) => {
+      const containerElem = document.getElementById(container.id);
+      const selectedElem = containerElem.querySelector('.select-selected');
+      const itemsElem = containerElem.querySelector('.select-items');
+
+      // Function to toggle dropdown visibility
+      function toggleDropdown() {
+        if (containerElem.classList.contains('select-disabled')) {
+          return;
+        }
+        itemsElem.style.display = itemsElem.style.display === 'block' ? 'none' : 'block';
+      }
+
+      // Show the dropdown menu on click
+      selectedElem.addEventListener('click', toggleDropdown);
+
+      // Handle item selection
+      itemsElem.querySelectorAll('div').forEach(item => {
+        item.addEventListener('click', function() {
+          if (containerElem.classList.contains('select-disabled')) {
+            return;
+          }
+          selectedElem.textContent = this.textContent;
+          itemsElem.style.display = 'none';
+
+          // Collect all selected values
+          const selectedValues = {};
+          containers.forEach((cont, idx) => {
+            if (idx <= index) {
+              const contElem = document.getElementById(cont.id);
+              const selText = contElem.querySelector('.select-selected').textContent.trim();
+              const valueElem = Array.from(contElem.querySelector('.select-items').querySelectorAll('div')).find(el => el.textContent.trim() === selText);
+              selectedValues[cont.param] = valueElem ? valueElem.dataset.value : null;
+            }
+          });
+
+          // Enable the next container if applicable
+          if (index < containers.length - 1) {
+            const nextContainer = document.getElementById(containers[index + 1].id);
+            if (this.dataset.value !== `select_${containers[index].param.split('_').join('')}`) {
+              nextContainer.classList.remove('select-disabled');
+            } else {
+              for (let i = index + 1; i < containers.length; i++) {
+                document.getElementById(containers[i].id).classList.add('select-disabled');
+              }
+            }
+          }
+
+          // Redirect with selected values
+          const queryString = Object.entries(selectedValues).map(([key, value]) => `${key}=${value}`).join('&');
+          window.location.href = `?${queryString}`;
+        });
+      });
+
+      // Close the dropdown if clicked outside
+      document.addEventListener('click', function(event) {
+        if (!containerElem.contains(event.target)) {
+          itemsElem.style.display = 'none';
+        }
+      });
+    });
+
+
+    // Initial enablement based on URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Get the value associated with the "redir" parameter
+    const redirParamCheckValue = urlParams.has('redir');
+    const redirParamGetValue = urlParams.get('redir');
+
+    // Get the value associated with the "redir" parameter
+    const _yParamCheckValue = urlParams.has('_y');
+    const _yParamGetValue = urlParams.get('_y');
+
+    // Get the value associated with the "redir" parameter
+    const _cParamCheckValue = urlParams.has('_c');
+    const _cParamGetValue = urlParams.get('_c');
+    console.log("Check: " + _cParamCheckValue);
+    console.log("Value: " + _cParamGetValue);
+
+    if (redirParamCheckValue) {
+      if (redirParamGetValue != "select_grading") {
+        // Enable the year container here
+        const yearContainer = document.getElementById('year-container');
+        yearContainer.classList.remove('select-disabled');
+      }
+
+    }
+
+    if (_yParamCheckValue) {
+      if (_yParamGetValue != "select_year") {
+        // Enable the year container here
+        const courseContainer = document.getElementById('course-container');
+        courseContainer.classList.remove('select-disabled');
+      }
+
+    }
+
+    if (_cParamCheckValue) {
+      if (_cParamGetValue != "select_course") {
+        // Enable the year container here
+        const semesterContainer = document.getElementById('semester-container');
+        semesterContainer.classList.remove('select-disabled');
+      }
+
+    }
 
     semster = document.getElementById('get_semester').value;
     // Get all rows in the table

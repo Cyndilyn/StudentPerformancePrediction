@@ -39,6 +39,10 @@ if (isset($_SESSION["username"])) {
 
 
 <style>
+  body {
+    font-size: .8em;
+  }
+
   .my_grades_active {
     border: 1.5px solid white;
     border-radius: 6px;
@@ -57,7 +61,7 @@ if (isset($_SESSION["username"])) {
   }
 
   .table-hover tbody tr:hover {
-    /* background: #4ef0a2; */
+    /* background: #67AFCB; */
     cursor: pointer;
   }
 
@@ -77,7 +81,11 @@ if (isset($_SESSION["username"])) {
     color: #dc3545;
   }
 
-  /* td:hover { background-color: #f75271; color: #fff; } */
+  td:hover {
+    background-color: #b3e7ff;
+    color: #000;
+  }
+
   td:hover a {
     color: #fff;
   }
@@ -86,9 +94,10 @@ if (isset($_SESSION["username"])) {
     color: #fff;
   }
 
+  /* 
   td:hover .remarks {
     color: #fff;
-  }
+  } */
 
 
 
@@ -127,7 +136,7 @@ if (isset($_SESSION["username"])) {
 
   /* Custom select displayed element */
   .select-selected {
-    background-color: #17a2b8;
+    background-color: #347B98;
     color: white;
     padding: 5px 10px;
     font-size: 14px;
@@ -139,7 +148,7 @@ if (isset($_SESSION["username"])) {
   .select-items {
     position: absolute;
     background-color: #f8f9fa;
-    border: 1px solid #ccc;
+    border: 1px solid #347B98;
     z-index: 99;
     width: 100%;
     top: 35px;
@@ -156,13 +165,18 @@ if (isset($_SESSION["username"])) {
   /* Highlight selected item */
   .select-items div:hover,
   .same-as-selected {
-    background-color: #17a2b8;
+    background-color: #347B98;
     color: white;
   }
 
   .select-disabled .select-selected {
     background-color: #ccc;
     cursor: not-allowed;
+  }
+
+  .new-color {
+    background-color: #347B98 !important;
+    color: #fff;
   }
 </style>
 
@@ -443,18 +457,18 @@ if ($semester_no == "2") {
       <table border="1" class="table table-hover">
         <thead>
           <tr>
-            <th class="px-3 text-center bg-info text-white" colspan="8">My Grade</th>
+            <th class="px-3 text-center new-color" colspan="8">My Grade</th>
           </tr><!-- Preliminary Here -->
 
           <tr class="text-center">
-            <th class="px-3 bg-white">Student Name</th>
-            <th class="px-3" style="background-color: #b1fbc4;">Prelim</th>
-            <th class="px-3" style="background-color: #cdddfe;">Midterm</th>
-            <th class="px-3" style="background-color: #ffb3b3;">Prefinal</th>
-            <th class="px-3" style="background-color: #ffffcc;" id="final_student_predict">Final</th>
-            <th class="px-3 bg-secondary text-white" id="average">Average</th>
-            <th class="px-3 bg-secondary text-white" id="average">Equivalent</th>
-            <th class="px-3 bg-secondary text-white" id="remarks">Remarks</th>
+            <th class="px-3 new-color">Student Name</th>
+            <th class="px-3 new-color">Prelim</th>
+            <th class="px-3 new-color">Midterm</th>
+            <th class="px-3 new-color">Prefinal</th>
+            <th class="px-3 new-color" id="final_student_predict">Final</th>
+            <th class="px-3 new-color" id="average">Average</th>
+            <th class="px-3 new-color" id="average">Equivalent</th>
+            <th class="px-3 new-color" id="remarks">Remarks</th>
             <!-- <th class="px-3 bg-dark text-white" id="prediction">Prediction<sup class='badge badge-warning'>Prediction</sup></th> -->
           </tr>
 
@@ -1328,18 +1342,18 @@ if ($semester_no == "2") {
     <table border="1" class="table table-hover">
       <thead>
         <tr>
-          <th class="px-3 text-center bg-info text-white" colspan="9">My Grade</th>
+          <th class="px-3 text-center text-white new-color" colspan="9">My Grade</th>
         </tr><!-- Preliminary Here -->
 
         <tr class="text-center">
-          <th class="px-3 bg-white">Student Name</th>
-          <th class="px-3" style="background-color: #b1fbc4;">Prelim</th>
-          <th class="px-3" style="background-color: #cdddfe;">Midterm</th>
-          <th class="px-3" style="background-color: #ffb3b3;" id="prefinal_student_predict">Prefinal</th>
-          <th class="px-3" style="background-color: #ffffcc;" id="final_student_predict">Final</th>
-          <th class="px-3 bg-secondary text-white" id="average">Average</th>
-          <th class="px-3 bg-secondary text-white" id="average">Equivalent</th>
-          <th class="px-3 bg-secondary text-white" id="remarks">Remarks</th>
+          <th class="px-3 new-color">Student Name</th>
+          <th class="px-3 new-color">Prelim</th>
+          <th class="px-3 new-color">Midterm</th>
+          <th class="px-3 new-color" id="prefinal_student_predict">Prefinal</th>
+          <th class="px-3 new-color" id="final_student_predict">Final</th>
+          <th class="px-3 new-color" id="average">Average</th>
+          <th class="px-3 new-color" id="average">Equivalent</th>
+          <th class="px-3 new-color" id="remarks">Remarks</th>
           <!-- <th class="px-3 bg-dark text-white" id="prediction">Prediction<sup class='badge badge-warning'>Prediction</sup></th> -->
         </tr>
 

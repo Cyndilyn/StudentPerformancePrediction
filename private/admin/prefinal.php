@@ -89,67 +89,67 @@ if (isset($_GET["_s_e_"])) {
     <thead>
       <tr>
         <th class="px-3 col-2" colspan="2"></th>
-        <th class="px-3 text-center " style="background-color: #ff8080;" colspan="16">Prefinal Period</th>
+        <th class="px-3 text-center " style="background-color:#347B98; color: white;" colspan="16">Prefinal Period</th>
       </tr><!-- Prefinal Here -->
 
       <tr>
         <th class="px-3">Student&nbsp;ID</th>
         <th class="px-3 col-2">Student&nbsp;Name</th>
         <!-- <th class="px-5 text-center " style="background-color: #ff8080;" colspan="12">Formative Assessment</th> -->
-        <th class="px-5 text-center " style="background-color: #ff8080;" colspan="5">Output</th>
-        <th class="px-5 text-center " style="background-color: #ff8080;" colspan="5">Performance</th>
-        <th class="px-5 text-center " style="background-color: #ff8080;" colspan="3">Major&nbsp;Exam</th>
-        <th class="px-2 text-center " style="background-color: #ff8080;">3rd&nbsp;Quarter</th>
-        <th class="px-2 text-center " style="background-color: #ff8080;">Prefinal&nbsp;Grade</th>
-        <th class="px-2 text-center " style="background-color: #ff8080;">Equivalent</th>
+        <th class="px-5 text-center " style="background-color:#347B98; color: white;" colspan="5">Output</th>
+        <th class="px-5 text-center " style="background-color:#347B98; color: white;" colspan="5">Performance</th>
+        <th class="px-5 text-center " style="background-color:#347B98; color: white;" colspan="3">Major&nbsp;Exam</th>
+        <th class="px-2 text-center " style="background-color:#347B98; color: white;">3rd&nbsp;Quarter</th>
+        <th class="px-2 text-center " style="background-color:#347B98; color: white;">Prefinal&nbsp;Grade</th>
+        <th class="px-2 text-center " style="background-color:#347B98; color: white;">Equivalent</th>
       </tr><!-- Prefinal Here -->
 
       <tr>
         <th class="px-3"></th>
         <th class="px-3">Highest&nbsp;Possible&nbsp;Score</th>
         <!-- <th class="" style="background-color: #ff8080;">10</th><th class="" style="background-color: #ff8080;">10</th><th class="" style="background-color: #ff8080;">10</th><th class="" style="background-color: #ff8080;">10</th><th class="" style="background-color: #ff8080;">10</th><th class="" style="background-color: #ff8080;">10</th><th class="" style="background-color: #ff8080;">10</th><th class="" style="background-color: #ff8080;">10</th><th class="" style="background-color: #ff8080;">10</th><th class="" style="background-color: #ff8080;">10</th><th class="" style="background-color: #ff8080;">100</th><th class="" style="background-color: #ff8080;">60</th> -->
-        <th class="" style="background-color: #ff8080;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>20</center>
         </th>
-        <th class="" style="background-color: #ff8080;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>20</center>
         </th>
-        <th class="" style="background-color: #ff8080;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>40</center>
         </th>
-        <th class="" style="background-color: #ff8080;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>60</center>
         </th>
-        <th class="" style="background-color: #ff8080;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>0.40</center>
         </th>
-        <th class="" style="background-color: #ff8080;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>20</center>
         </th>
-        <th class="" style="background-color: #ff8080;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>20</center>
         </th>
-        <th class="" style="background-color: #ff8080;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>40</center>
         </th>
-        <th class="" style="background-color: #ff8080;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>60</center>
         </th>
-        <th class="" style="background-color: #ff8080;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>0.40</center>
         </th>
-        <th class="" style="background-color: #ff8080;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>30</center>
         </th>
-        <th class="" style="background-color: #ff8080;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>60</center>
         </th>
-        <th class="" style="background-color: #ff8080;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>0.20</center>
         </th>
-        <th class="" style="background-color: #ff8080;"></th>
-        <th class="" style="background-color: #ff8080;"></th>
-        <th class="" style="background-color: #ff8080;"></th>
+        <th class="" style="background-color:#347B98; color: white;"></th>
+        <th class="" style="background-color:#347B98; color: white;"></th>
+        <th class="" style="background-color:#347B98; color: white;"></th>
       </tr><!-- Prefinal Here -->
     </thead>
 

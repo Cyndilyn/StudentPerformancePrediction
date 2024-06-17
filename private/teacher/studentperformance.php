@@ -117,7 +117,7 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
 
   /* Custom select displayed element */
   .select-selected {
-    background-color: #17a2b8;
+    background-color: #347B98;
     color: white;
     padding: 5px 10px;
     font-size: 14px;
@@ -129,7 +129,7 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
   .select-items {
     position: absolute;
     background-color: #f8f9fa;
-    border: 1px solid #ccc;
+    border: 1px solid #347B98;
     z-index: 99;
     width: 100%;
     top: 35px;
@@ -146,7 +146,7 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
   /* Highlight selected item */
   .select-items div:hover,
   .same-as-selected {
-    background-color: #17a2b8;
+    background-color: #347B98;
     color: white;
   }
 

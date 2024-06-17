@@ -9,6 +9,7 @@ if (isset($_SESSION["username"])) {
 
   $session_user = $_SESSION["username"];
 
+  $query_info = mysqli_query($connections, "SELECT * FROM _user_tbl_ WHERE username='$session_user'");
   $my_info = mysqli_fetch_assoc($query_info);
   $account_type = $my_info["account_type"];
 
@@ -51,7 +52,7 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
 
 
   .table-hover tbody tr:hover {
-    background: #e6e6e6;
+    background: #67AFCB;
     cursor: pointer;
   }
 
@@ -81,9 +82,10 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
     color: #fff;
   }
 
+  /* 
   td:hover .remarks {
     color: #fff;
-  }
+  } */
 
   table tbody {
     display: block;
@@ -174,7 +176,7 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
 
   /* Custom select displayed element */
   .select-selected {
-    background-color: #17a2b8;
+    background-color: #347B98;
     color: white;
     padding: 5px 10px;
     font-size: 14px;
@@ -210,6 +212,11 @@ $year_qry = mysqli_query($connections, "SELECT DISTINCT year FROM _user_tbl_ WHE
   .select-disabled .select-selected {
     background-color: #ccc;
     cursor: not-allowed;
+  }
+
+  .new-color {
+    background-color: #347B98 !important;
+    color: #fff;
   }
 </style>
 
@@ -376,19 +383,19 @@ $selectedSemesterText = isset($semesterOptions[$selectedSemester]) ? $semesterOp
   <table border="1" class="table table-hover mt-3 col-sm table-no-padding">
     <thead>
       <tr>
-        <th class="px-3 text-center bg-info text-white" colspan="9">Student Grade</th>
+        <th class="px-3 text-center new-color" colspan="9">Student Grade</th>
       </tr><!-- Preliminary Here -->
 
       <tr class="text-center">
-        <th class="px-3">Student ID</th>
-        <th class="px-3">Student Name</th>
-        <th class="px-3" style="background-color:#B1FBC4; color:#000;">Prelim</th>
-        <th class="px-3" style="background-color:#cdddfe; color:#000;">Midterm</th>
-        <th class="px-3" style="background-color:#ffb3b3; color:#000;" id="prefinal">Prefinal</th>
-        <th class="px-3" style="background-color:#ffffcc; color:#000;" id="final">Final</th>
-        <th class="px-3 bg-secondary text-white" id="average">Average</th>
-        <th class="px-3 bg-secondary text-white" id="average">Equivalent</th>
-        <th class="px-3 bg-secondary text-white" id="remarks">Remarks</th>
+        <th class="px-3 new-color">Student ID</th>
+        <th class="px-3 new-color">Student Name</th>
+        <th class="px-3 new-color">Prelim</th>
+        <th class="px-3 new-color">Midterm</th>
+        <th class="px-3 new-color" id="prefinal">Prefinal</th>
+        <th class="px-3 new-color" id="final">Final</th>
+        <th class="px-3 new-color" id="average">Average</th>
+        <th class="px-3 new-color" id="average">Equivalent</th>
+        <th class="px-3 new-color" id="remarks">Remarks</th>
       </tr>
 
     </thead>

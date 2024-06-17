@@ -12,6 +12,11 @@
   th {
     font-weight: 500;
   }
+
+  .main-bg-color {
+    background-color: #347B98;
+    color: #fff;
+  }
 </style>
 <?php
 
@@ -94,69 +99,69 @@ if (isset($_GET["_s_e_"])) {
     <thead>
       <tr>
         <th class="px-3 col-2" colspan="2"></th>
-        <th class="px-3 text-center " style="background-color: #82abfc;" colspan="17">Midterm</th>
+        <th class="px-3 text-center " style="background-color:#347B98; color: white;" colspan="17">Midterm</th>
       </tr><!-- Midterm Here -->
 
       <tr>
         <th class="px-3">Student&nbsp;ID</th>
         <th class="px-3 col-2">Student&nbsp;Name</th>
         <!-- <th class="px-5 text-center " style="background-color: #82abfc;" colspan="12">Formative Assessment</th> -->
-        <th class="px-5 text-center " style="background-color: #82abfc;" colspan="5">Output</th>
-        <th class="px-5 text-center " style="background-color: #82abfc;" colspan="5">Performance</th>
-        <th class="px-5 text-center " style="background-color: #82abfc;" colspan="3">Major&nbsp;Exam</th>
-        <th class="px-2 text-center " style="background-color: #82abfc;">2nd&nbsp;Quarter</th>
-        <th class="px-2 text-center " style="background-color: #82abfc;">Midterm&nbsp;Grade</th>
-        <th class="px-2 text-center " style="background-color: #82abfc;">Equivalent</th>
-        <th class="px-2 text-center " style="background-color: #82abfc;">Remarks</th>
+        <th class="px-5 text-center " style="background-color:#347B98; color: white;" colspan="5">Output</th>
+        <th class="px-5 text-center " style="background-color:#347B98; color: white;" colspan="5">Performance</th>
+        <th class="px-5 text-center " style="background-color:#347B98; color: white;" colspan="3">Major&nbsp;Exam</th>
+        <th class="px-2 text-center " style="background-color:#347B98; color: white;">2nd&nbsp;Quarter</th>
+        <th class="px-2 text-center " style="background-color:#347B98; color: white;">Midterm&nbsp;Grade</th>
+        <th class="px-2 text-center " style="background-color:#347B98; color: white;">Equivalent</th>
+        <th class="px-2 text-center " style="background-color:#347B98; color: white;">Remarks</th>
       </tr><!-- Midterm Here -->
 
       <tr>
         <th class="px-3"></th>
         <th class="px-3">Highest&nbsp;Possible&nbsp;Score</th>
         <!-- <th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">10</th><th class="" style="background-color: #82abfc;">100</th><th class="" style="background-color: #82abfc;">60</th> -->
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>20</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>20</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>40</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>60</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>0.40</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>20</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>20</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>40</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>60s</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>0.40</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>30</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>60</center>
         </th>
-        <th class="" style="background-color: #82abfc;">
+        <th class="" style="background-color:#347B98; color: white;">
           <center>0.20</center>
         </th>
-        <th class="" style="background-color: #82abfc;"></th>
-        <th class="" style="background-color: #82abfc;"></th>
-        <th class="" style="background-color: #82abfc;"></th>
-        <th class="" style="background-color: #82abfc;"></th>
+        <th class="" style="background-color:#347B98; color: white;"></th>
+        <th class="" style="background-color:#347B98; color: white;"></th>
+        <th class="" style="background-color:#347B98; color: white;"></th>
+        <th class="" style="background-color:#347B98; color: white;"></th>
       </tr><!-- Midterm Here -->
     </thead>
 
